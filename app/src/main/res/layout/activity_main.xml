@@ -76,7 +76,5 @@
                 android:background="@android:color/holo_purple"/>
         </LinearLayout>
 
-
-
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

@@ -1,14 +1,18 @@
 package ur.disorderapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
     private ListView mDrawerList;
     private ArrayAdapter<String> mAdapter;
+    private Button mSugarModule;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,8 +21,18 @@ public class MainActivity extends AppCompatActivity {
 
         mDrawerList = (ListView)findViewById(R.id.left_drawer);
         addDrawerItems();
+
+        mSugarModule = (Button)findViewById(R.id.button_1);
+        mSugarModule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), SugarModActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
+    //TODO: MAKE DRAWER ITEMS CLICKABLE BUTTONS
     //Helper method to create itemized list
     private void addDrawerItems(){
         String[] a = {"Module 1", "Module 2", "Module 3", "Module 4"};
