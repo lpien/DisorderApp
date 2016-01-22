@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DisorderApp</string>
+    <string name="main_btn_sugar">Sugar Module</string>
+    <string name="main_btn_exercise">Exercise Module</string>
+    <string name="main_btn_sleep">Sleep Module</string>
+    <string name="main_btn_other">Others</string>
 </resources>
