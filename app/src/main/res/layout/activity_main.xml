@@ -29,6 +29,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!-- top buttons -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -53,6 +54,7 @@
 
         </LinearLayout>
 
+        <!-- bottom buttons -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -75,7 +77,7 @@
                 android:text="Module"
                 android:background="@android:color/holo_purple"/>
         </LinearLayout>
-        
+
 
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>
