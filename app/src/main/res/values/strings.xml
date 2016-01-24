@@ -1,11 +1,14 @@
 <resources>
     <string name="app_name">DisorderApp</string>
-<<<<<<< HEAD
+
     <string name="title_activity_sugar_mod">SugarModActivity</string>
-=======
     <string name="main_btn_sugar">Sugar Module</string>
     <string name="main_btn_exercise">Exercise Module</string>
     <string name="main_btn_sleep">Sleep Module</string>
     <string name="main_btn_other">Others</string>
->>>>>>> origin/master
+    <string name="sugar_title">Sugar Module Tasks</string>
+    <string name="sugar_soda">Soda</string>
+    <string name="sugar_breakfast">Breakfast Pastries</string>
+    <string name="sugar_snacks">Sweet Snacks</string>
+
 </resources>
