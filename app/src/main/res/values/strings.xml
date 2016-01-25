@@ -10,5 +10,11 @@
     <string name="sugar_soda">Soda</string>
     <string name="sugar_breakfast">Breakfast Pastries</string>
     <string name="sugar_snacks">Sweet Snacks</string>
+    <string name="title_activity_sugar_program">SugarProgramActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 
 </resources>

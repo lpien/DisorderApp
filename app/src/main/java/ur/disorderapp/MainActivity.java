@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                Intent i = new Intent(getApplicationContext(), SugarModActivity.class);
+                Intent i = new Intent(getApplicationContext(), SugarProgramActivity.class);
                 startActivity(i);
             }
         });
