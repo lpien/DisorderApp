@@ -28,7 +28,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-<<<<<<< HEAD
 
         <!-- top buttons -->
         <LinearLayout
@@ -42,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Sugar Module"
+                android:text="@string/main_btn_sugar"
                 android:background="@android:color/holo_green_light"/>
 
             <Button
@@ -80,52 +79,5 @@
         </LinearLayout>
 
 
-=======
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/main_btn_sugar"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/main_btn_sugar"
-                android:background="#ADC0D8"/>
-
-            <Button
-                android:id="@+id/main_btn_exercise"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/main_btn_exercise"
-                android:background="#EA8F64"/>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/main_btn_sleep"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/main_btn_sleep"
-                android:background="#F8ED96"/>
-
-            <Button
-                android:id="@+id/main_btn_other"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/main_btn_other"
-                android:background="#cf66b3"/>
-        </LinearLayout>
-
->>>>>>> origin/master
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

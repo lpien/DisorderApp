@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> mAdapter;
     private Button mSugarModule;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawerList = (ListView)findViewById(R.id.left_drawer);
         addDrawerItems();
 
-        mSugarModule = (Button)findViewById(R.id.main_btn_sugar);
+        mSugarModule = (Button)findViewById(R.id.button_1);
         mSugarModule.setOnClickListener(new View.OnClickListener()
         {
             @Override
