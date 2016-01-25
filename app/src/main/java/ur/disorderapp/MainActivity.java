@@ -15,17 +15,20 @@ public class MainActivity extends AppCompatActivity {
     private Button mSugarModule;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mDrawerList = (ListView)findViewById(R.id.left_drawer);
         addDrawerItems();
 
-        mSugarModule = (Button)findViewById(R.id.button_1);
-        mSugarModule.setOnClickListener(new View.OnClickListener() {
+        mSugarModule = (Button)findViewById(R.id.main_btn_sugar);
+        mSugarModule.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 Intent i = new Intent(getApplicationContext(), SugarModActivity.class);
                 startActivity(i);
             }
@@ -34,9 +37,11 @@ public class MainActivity extends AppCompatActivity {
 
     //TODO: MAKE DRAWER ITEMS CLICKABLE BUTTONS
     //Helper method to create itemized list
-    private void addDrawerItems(){
+    private void addDrawerItems()
+    {
         String[] a = {"Module 1", "Module 2", "Module 3", "Module 4"};
-        mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, a);
+        mAdapter =
+                new ArrayAdapter<>(this, android.R.layout.simple_expandable_list_item_1, a);
         mDrawerList.setAdapter(mAdapter);
     }
 }
