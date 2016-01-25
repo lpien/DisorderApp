@@ -8,3 +8,11 @@
   * To switch to the branch, run `git checkout <YOUR BRANCH NAME>`
 
 * __Please fix any conflicts before push to Github__
+
+## TODO List
+* __Add SQLite Database and models for storing local changes and progress__
+* __Add the feature of sending data to Firebase__
+* __Add more specific self-monitoring functionalities for each program__
+* __Obviously, use pictures and icons instead of words__
+* __Add sound clips for voice fab__
+* __More acivities pages__

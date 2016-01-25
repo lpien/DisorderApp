@@ -18,8 +18,7 @@ public class SugarProgramActivity extends AppCompatActivity
 {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sugar_program);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
