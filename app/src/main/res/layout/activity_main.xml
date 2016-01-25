@@ -1,85 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout
+    android:id="@+id/drawer_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/drawer_layout"
-    tools:context=".MainActivity">
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-    <FrameLayout
+    <include
+        layout="@layout/app_bar_main"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/content_frame"/>
-
-    <!-- DRAWER MENU -->
-    <ListView
-        android:layout_width="240dp"
-        android:layout_height="match_parent"
-        android:id="@+id/left_drawer"
-        android:choiceMode="singleChoice"
-        android:divider="@android:color/transparent"
-        android:dividerHeight="0dp"
-        android:background="#aaa"
-        android:layout_gravity="left|start"/>
-
-    <!-- CONTENT -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/main_btn_sugar"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/main_btn_sugar"
-                android:layout_margin="5dp"
-                android:background="#ADC0D8"/>
-
-            <Button
-                android:id="@+id/main_btn_exercise"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/main_btn_exercise"
-                android:layout_margin="5dp"
-                android:background="#EA8F64"/>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-            <Button
-                android:id="@+id/main_btn_sleep"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/main_btn_sleep"
-                android:background="#F8ED96"
-                android:layout_margin="5dp"/>
-
-            <Button
-                android:id="@+id/main_btn_other"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="@string/main_btn_other"
-                android:layout_margin="5dp"
-                android:background="#cf66b3"/>
-        </LinearLayout>
-
-</LinearLayout>
-
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_sugar_program"
+        app:menu="@menu/activity_sugar_program_drawer"/>
 
 </android.support.v4.widget.DrawerLayout>

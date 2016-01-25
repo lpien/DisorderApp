@@ -14,10 +14,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class SugarProgramActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener
+{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sugar_program);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
