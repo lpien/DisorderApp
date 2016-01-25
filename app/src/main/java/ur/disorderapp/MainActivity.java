@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayAdapter<String> mAdapter;
     private Button mSugarModule;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
