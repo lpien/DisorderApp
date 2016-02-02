@@ -1,5 +1,6 @@
 package ur.disorderapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,7 +19,7 @@ public class SugarProgramActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
 
-    Button mSodaTask;
+    Button mSodaTask, mSelfTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +46,16 @@ public class SugarProgramActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //Soda button initialized
-        mSodaTask.setOnClickListener(new View.);
+        //Starts self-assessment activity
+        mSelfTest = (Button)findViewById(R.id.sugar_btn_snacks);
+        mSelfTest.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(getApplicationContext(), SelfAssessmentActivity.class);
+                startActivity(i);
+            }
+        });
+
     }
 
     @Override

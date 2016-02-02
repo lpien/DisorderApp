@@ -49,7 +49,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="@string/sugar_snacks"
+                android:text="SELF ASSESSMENT TEST"
                 android:background="#F8ED96"
                 android:layout_margin="5dp"/>
 
