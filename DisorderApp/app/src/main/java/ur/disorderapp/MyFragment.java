@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.support.v4.app.Fragment;
 
@@ -15,6 +16,7 @@ import android.support.v4.app.Fragment;
 public class MyFragment extends android.support.v4.app.Fragment {
 
     public static final String EXTRA_MESSAGE = "EXTRA_MESSAGE";
+    Button b1, b2, b3, b4;
 
     public MyFragment() {
         // Required empty public constructor
@@ -34,8 +36,12 @@ public class MyFragment extends android.support.v4.app.Fragment {
         // Inflate the layout for this fragment
         String message = getArguments().getString(EXTRA_MESSAGE);
         View v = inflater.inflate(R.layout.fragment_my, container, false);
-        TextView messageTextView = (TextView)v.findViewById(R.id.textView);
-        messageTextView.setText(message);
+        b1 = (Button)v.findViewById(R.id.self_drink);
+        b2 = (Button)v.findViewById(R.id.self_food);
+        b3 = (Button)v.findViewById(R.id.self_pastry);
+        b4 = (Button)v.findViewById(R.id.self_tea);
+        //TextView messageTextView = (TextView)v.findViewById(R.id.textView);
+        //messageTextView.setText(message);
         return v;
     }
 

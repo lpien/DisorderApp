@@ -1,13 +1,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="ur.disorderapp.MyFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="wrap_content"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/self_drink"
+        android:text="Drinks"
+        android:layout_weight="1"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/self_drink"
+        android:id="@+id/self_food"
+        android:text="Food"
+        android:layout_weight="1"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/self_drink"
+        android:id="@+id/self_tea"
+        android:text="Tea"
+        android:layout_weight="1"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/self_pastry"
+        android:text="Pastry"
+        android:layout_weight="1"
+        android:layout_alignTop="@+id/self_tea"
+        android:layout_toEndOf="@+id/self_tea" />
 
 </RelativeLayout>
