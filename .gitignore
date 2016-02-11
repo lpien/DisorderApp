@@ -1,7 +1,22 @@
-.gradle
-/local.properties
-/.idea/workspace.xml
-/.idea/libraries
+# Files to be ignored in the Android folder
+DisorderApp.gradle
+DisorderApp/local.properties
+DisorderApp/.idea/workspace.xml
+DisorderApp/.idea/libraries
+DisorderApp.DS_Store
+DisorderApp/build
+DisorderApp/captures
+
+# Files to be ignored in the node application folder
+Firebase_test/node_modules/
+Firebase_test/npm-debug.log
+
+# Files to Ignore Generally
+.hg
+.lock-wscript
+.wafpickle-N
+*.swp
 .DS_Store
-/build
-/captures
+._*
+
+
