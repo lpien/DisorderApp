@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/Lauren/Desktop/DisorderApp/app/build/intermediates/exploded-aar/com.mikhaellopez/circularprogressbar/1.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="961216476b6e97986980dd2c4ad1523b4162486e">
+        <dex dex="/Users/Lauren/Desktop/DisorderApp/app/build/intermediates/pre-dexed/debug/classes-0a1c88dd9dab3af02d132fbf3007ce3a478840e0.jar" />
+    </item>
+
+</items>
