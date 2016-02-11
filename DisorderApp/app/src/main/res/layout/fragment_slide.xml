@@ -2,6 +2,7 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+             android:background="#2b2b2b"
              tools:context="ur.disorderapp.SlideFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -9,6 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/fragment_text"
+        android:textColor="#00ffee"
+
         />
 
 </FrameLayout>
