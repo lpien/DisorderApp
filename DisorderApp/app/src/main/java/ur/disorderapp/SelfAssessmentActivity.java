@@ -3,6 +3,10 @@ package ur.disorderapp;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -19,6 +23,17 @@ public class SelfAssessmentActivity extends AppCompatActivity
 {
     ViewPager mPager;
 
+    /**
+     * The number of pages (wizard steps) to show in this demo.
+     */
+    private static final int NUM_PAGES = 5;
+
+    /**
+     * The pager adapter, which provides the pages to the view pager widget.
+     */
+    private PagerAdapter mPagerAdapter;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -28,6 +43,10 @@ public class SelfAssessmentActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         mPager = (ViewPager) findViewById(R.id.view_pager);
+
+        mPagerAdapter = new viewpagerAdapter(getSupportFragmentManager());
+
+        mPager.setAdapter(mPagerAdapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener()
@@ -57,10 +76,16 @@ public class SelfAssessmentActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START))
         {
             drawer.closeDrawer(GravityCompat.START);
-        }
-        else
-        {
-            super.onBackPressed();
+        } else {
+            if (mPager.getCurrentItem() == 0)
+            {
+                // If the user is currently looking at the first page, allow the system to handle the
+                // Back button. This calls finish() on this activity and pops the back stack.
+                super.onBackPressed();
+            } else {
+                // Otherwise, select the previous step.
+                mPager.setCurrentItem(mPager.getCurrentItem() - 1);
+            }
         }
     }
 
@@ -112,5 +137,25 @@ public class SelfAssessmentActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private class viewpagerAdapter extends FragmentStatePagerAdapter
+    {
+        public viewpagerAdapter(FragmentManager fm)
+        {
+            super(fm);
+        }
+
+        @Override
+        public SlideFragment getItem(int position)
+        {
+            return SlideFragment.newInstance("Page: "+Integer.toString(position));
+        }
+
+        @Override
+        public int getCount()
+        {
+            return NUM_PAGES;
+        }
     }
 }
