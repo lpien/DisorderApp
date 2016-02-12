@@ -1,6 +1,8 @@
 package ur.disorderapp.model;
 
 
+import ur.disorderapp.EnumValues.GoalStatus;
+
 public class Goal
 {
     private int progress;//the percentage of the progress

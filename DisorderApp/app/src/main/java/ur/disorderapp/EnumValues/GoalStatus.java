@@ -1,4 +1,4 @@
-package ur.disorderapp.model;
+package ur.disorderapp.EnumValues;
 
 
 public enum GoalStatus

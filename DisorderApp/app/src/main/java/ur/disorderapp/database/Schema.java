@@ -4,7 +4,7 @@ public class Schema
 {
 
     public static final int VERSION = 1;
-    public static final String DATABASE_NAME = "goal_database.db";
+    public static final String DATABASE_NAME = "database.db";
 
     public Schema()
     {
@@ -49,6 +49,9 @@ public class Schema
 
             //Regarding to the Question "What do you feel?"
             public static final String FEELING = "feeling";
+
+            //Record the date of this self-monitoring result
+            public static final String DATE = "date";
         }
 
     }
