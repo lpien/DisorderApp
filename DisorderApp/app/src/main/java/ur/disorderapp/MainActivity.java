@@ -15,6 +15,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+/*
+* The Main / Home page should be like a dashboard-like page that shows the user
+* progress and able to navigate to various programs, either to start a new one
+* or continue an old one
+* */
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
@@ -27,7 +33,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //TODO: add sound when button clicked
+        //TODO: add sound when button clicked (SoundPool)
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener()
         {
@@ -48,10 +54,25 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
+        //Sugar Program
         Button sugarModule = (Button) findViewById(R.id.main_btn_sugar);
-        sugarModule.setOnClickListener(new View.OnClickListener() {
+        sugarModule.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
+
+                //TODO: querying from database first to check the program status,
+                // if it is the first time the user start the program,
+                // navigate to self-monitoring first to finish the survey
+                // (check goal status)
+
+                //Start a new one
+
+
+
+                //Continue
                 Intent i = new Intent(getApplicationContext(), SugarProgramActivity.class);
                 startActivity(i);
             }
@@ -63,7 +84,8 @@ public class MainActivity extends AppCompatActivity
     public void onBackPressed()
     {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
+        if (drawer.isDrawerOpen(GravityCompat.START))
+        {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();

@@ -19,17 +19,18 @@ public class DatabaseHelper extends SQLiteOpenHelper
         db.execSQL("create table " + Schema.GoalTable.NAME
                 + "(_id integer primary key autoincrement, "
                 + Schema.GoalTable.Cols.STATUS + ", "
+                + Schema.GoalTable.Cols.NAME + ", "
                 + Schema.GoalTable.Cols.PROGRESS + ")"
         );
 
         db.execSQL("create table " + Schema.HabitTable.NAME
                         + "(_id integer primary key autoincrement, "
                         + Schema.HabitTable.Cols.FOOD + ", "
-                        + Schema.HabitTable.Cols.AMOUNT + ","
-                        + Schema.HabitTable.Cols.TIME + ","
-                        + Schema.HabitTable.Cols.LOCATION + ","
-                        + Schema.HabitTable.Cols.SITUATION + ","
-                        + Schema.HabitTable.Cols.FEELING + ","
+                        + Schema.HabitTable.Cols.AMOUNT + ", "
+                        + Schema.HabitTable.Cols.TIME + ", "
+                        + Schema.HabitTable.Cols.LOCATION + ", "
+                        + Schema.HabitTable.Cols.SITUATION + ", "
+                        + Schema.HabitTable.Cols.FEELING + ", "
                         + Schema.HabitTable.Cols.DATE + ")"
         );
     }

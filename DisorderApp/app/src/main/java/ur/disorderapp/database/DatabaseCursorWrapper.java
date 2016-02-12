@@ -29,7 +29,9 @@ public class DatabaseCursorWrapper extends CursorWrapper
                         getColumnIndex(
                                 Schema.GoalTable.Cols.STATUS)));
 
-        return new Goal(progress, status);
+        String name = getString(getColumnIndex(Schema.GoalTable.Cols.NAME));
+
+        return new Goal(progress, status, name);
     }
 
     public SelfAssessmentData getSelfAssessmentData()

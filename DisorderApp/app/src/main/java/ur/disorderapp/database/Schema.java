@@ -23,6 +23,8 @@ public class Schema
             public static final String STATUS = "status";
 
             public static final String PROGRESS = "progress";
+
+            public static final String NAME = "name";
         }
     }
     //A table record the user's living habits taken from their self-monitoring results

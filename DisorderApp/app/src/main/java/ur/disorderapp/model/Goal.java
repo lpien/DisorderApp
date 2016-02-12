@@ -7,11 +7,14 @@ public class Goal
 {
     private int progress;//the percentage of the progress
     private GoalStatus status;
+    private String name;
 
-    public Goal(int progress, GoalStatus status)
+
+    public Goal(int progress, GoalStatus status, String name)
     {
         this.progress = progress;
         this.status = status;
+        this.name = name;
     }
 
     @Override
@@ -36,5 +39,13 @@ public class Goal
 
     public void setStatus(GoalStatus status) {
         this.status = status;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -5,6 +5,6 @@ public enum GoalStatus
 {
     ACTIVATED,
     UNACTIVATED,
-    FINISHED
-
+    FINISHED,
+    SELFMONITORING
 }
