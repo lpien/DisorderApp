@@ -37,6 +37,11 @@ public class Collection
         //Goal_collection = new HashMap<>();
          SelfAssessmentData_collection = new HashMap<>();
         Database = new DatabaseHelper(appContext1).getWritableDatabase();
+
+        //Initialize goal table
+        this.addGoal(new Goal(0, GoalStatus.UNACTIVATED, "sugar"));
+        this.addGoal(new Goal(0, GoalStatus.UNACTIVATED, "sleep"));
+
     }
 
     private static ContentValues getContentValues_goal(Goal goal)
@@ -77,7 +82,7 @@ public class Collection
         ContentValues values = getContentValues_selfMonitoringData(data);
         Database.insert(Schema.GoalTable.NAME, null, values);
 
-        SelfAssessmentData_collection.put(Integer.toString(assessmentCounter),data);
+        SelfAssessmentData_collection.put(Integer.toString(assessmentCounter), data);
 
         assessmentCounter++;
     }

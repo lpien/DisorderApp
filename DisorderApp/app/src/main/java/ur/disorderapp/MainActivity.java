@@ -15,6 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import ur.disorderapp.EnumValues.GoalStatus;
+import ur.disorderapp.model.Collection;
+
 /*
 * The Main / Home page should be like a dashboard-like page that shows the user
 * progress and able to navigate to various programs, either to start a new one
@@ -25,6 +28,8 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
 
+    private Collection sCollection;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -32,6 +37,9 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //Initialize the database collection
+        sCollection = Collection.get(this.getApplicationContext());
 
         //TODO: add sound when button clicked (SoundPool)
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -63,17 +71,23 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View v)
             {
 
-                //TODO: querying from database first to check the program status,
-                // if it is the first time the user start the program,
-                // navigate to self-monitoring first to finish the survey
-                // (check goal status)
+                /*querying from database first to check the program status,
+                 if it is the first time the user start the program,
+                 navigate to self-monitoring first to finish the survey
+                 (check goal status)*/
 
+                GoalStatus s = sCollection.checkStatus("sugar");
+                Intent i;
                 //Start a new one
+                if(s==GoalStatus.UNACTIVATED || s==GoalStatus.SELFMONITORING)
+                {
+                    i = new Intent(getApplicationContext(), SelfAssessmentActivity.class);
 
-
-
-                //Continue
-                Intent i = new Intent(getApplicationContext(), SugarProgramActivity.class);
+                }
+                //Or Continue
+                else {
+                    i = new Intent(getApplicationContext(), SugarProgramActivity.class);
+                }
                 startActivity(i);
             }
         });
