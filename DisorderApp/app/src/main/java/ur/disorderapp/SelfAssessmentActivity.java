@@ -3,7 +3,6 @@ package ur.disorderapp;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
@@ -21,18 +20,12 @@ import android.view.MenuItem;
 public class SelfAssessmentActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
-    ViewPager mPager;
+    private ViewPager mPager;
 
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
     private static final int NUM_PAGES = 5;
-
-    /**
-     * The pager adapter, which provides the pages to the view pager widget.
-     */
-    private PagerAdapter mPagerAdapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -44,9 +37,12 @@ public class SelfAssessmentActivity extends AppCompatActivity
 
         mPager = (ViewPager) findViewById(R.id.view_pager);
 
-        mPagerAdapter = new viewpagerAdapter(getSupportFragmentManager());
+        /*
+      The pager adapter, which provides the pages to the view pager widget.
+     */
+        PagerAdapter pagerAdapter = new viewpagerAdapter(getSupportFragmentManager());
 
-        mPager.setAdapter(mPagerAdapter);
+        mPager.setAdapter(pagerAdapter);
         mPager.setPageTransformer(true, new ZoomOutPageTransformer());
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
