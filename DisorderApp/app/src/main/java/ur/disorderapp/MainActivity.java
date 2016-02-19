@@ -29,11 +29,8 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
 
-<<<<<<< HEAD
     private final String TAG = "MainActivity.class";
-=======
     private Collection sCollection;
->>>>>>> origin/master
 
     @Override
     protected void onCreate(Bundle savedInstanceState)

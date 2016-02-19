@@ -3,14 +3,11 @@ package ur.disorderapp;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-<<<<<<< HEAD
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-=======
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
->>>>>>> origin/master
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
@@ -29,20 +26,17 @@ import java.util.List;
 public class SelfAssessmentActivity extends FragmentActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
-<<<<<<< HEAD
-    ViewPager mPager;
+    //ViewPager mPager;
     private final String TAG = "SelfAssessmentActivity";
 
     //changes
     PageAdapter pageAdapter;
-=======
     private ViewPager mPager;
 
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
     private static final int NUM_PAGES = 5;
->>>>>>> origin/master
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -57,13 +51,11 @@ public class SelfAssessmentActivity extends FragmentActivity
 
         mPager = (ViewPager) findViewById(R.id.view_pager);
 
-<<<<<<< HEAD
         //changes
         List<Fragment> fragments = getFragments();
         pageAdapter = new PageAdapter(getSupportFragmentManager(), fragments);
         mPager.setAdapter(pageAdapter);
 
-=======
         /*
       The pager adapter, which provides the pages to the view pager widget.
      */
@@ -71,7 +63,6 @@ public class SelfAssessmentActivity extends FragmentActivity
 
         mPager.setAdapter(pagerAdapter);
         mPager.setPageTransformer(true, new ZoomOutPageTransformer());
->>>>>>> origin/master
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener()
@@ -118,7 +109,7 @@ public class SelfAssessmentActivity extends FragmentActivity
         List<Fragment> fList = new ArrayList<Fragment>();
         fList.add(MyFragment.newInstance("Fragment 1"));
         fList.add(MyFragment.newInstance("Fragment 2"));
-
+        Log.i(TAG, "getFragments() called");
         return fList;
     }
 
