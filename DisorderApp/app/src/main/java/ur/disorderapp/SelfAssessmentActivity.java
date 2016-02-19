@@ -117,6 +117,7 @@ public class SelfAssessmentActivity extends FragmentActivity
         fList.add(MyFragment.newInstance("Fragment 2"));
         Log.i(TAG, "getFragments() called");
         return fList;
+
     }
 
     @Override
@@ -180,6 +181,7 @@ public class SelfAssessmentActivity extends FragmentActivity
         public SlideFragment getItem(int position)
         {
             Log.i(TAG, "getItem() called position = "+position );
+
             return SlideFragment.newInstance("Page: "+Integer.toString(position));
         }
 

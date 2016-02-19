@@ -8,6 +8,13 @@ DisorderApp/build
 DisorderApp/captures
 DisorderApp/*.iml
 
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+
 # Files to be ignored in the node application folder
 Firebase_test/node_modules/
 Firebase_test/npm-debug.log
