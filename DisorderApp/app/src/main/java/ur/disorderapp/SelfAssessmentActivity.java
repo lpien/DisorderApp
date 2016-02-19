@@ -3,8 +3,14 @@ package ur.disorderapp;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+<<<<<<< HEAD
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+=======
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.PagerAdapter;
+>>>>>>> origin/master
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
@@ -23,11 +29,20 @@ import java.util.List;
 public class SelfAssessmentActivity extends FragmentActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
+<<<<<<< HEAD
     ViewPager mPager;
     private final String TAG = "SelfAssessmentActivity";
 
     //changes
     PageAdapter pageAdapter;
+=======
+    private ViewPager mPager;
+
+    /**
+     * The number of pages (wizard steps) to show in this demo.
+     */
+    private static final int NUM_PAGES = 5;
+>>>>>>> origin/master
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -42,11 +57,21 @@ public class SelfAssessmentActivity extends FragmentActivity
 
         mPager = (ViewPager) findViewById(R.id.view_pager);
 
+<<<<<<< HEAD
         //changes
         List<Fragment> fragments = getFragments();
         pageAdapter = new PageAdapter(getSupportFragmentManager(), fragments);
         mPager.setAdapter(pageAdapter);
 
+=======
+        /*
+      The pager adapter, which provides the pages to the view pager widget.
+     */
+        PagerAdapter pagerAdapter = new viewpagerAdapter(getSupportFragmentManager());
+
+        mPager.setAdapter(pagerAdapter);
+        mPager.setPageTransformer(true, new ZoomOutPageTransformer());
+>>>>>>> origin/master
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener()
@@ -76,10 +101,16 @@ public class SelfAssessmentActivity extends FragmentActivity
         if (drawer.isDrawerOpen(GravityCompat.START))
         {
             drawer.closeDrawer(GravityCompat.START);
-        }
-        else
-        {
-            super.onBackPressed();
+        } else {
+            if (mPager.getCurrentItem() == 0)
+            {
+                // If the user is currently looking at the first page, allow the system to handle the
+                // Back button. This calls finish() on this activity and pops the back stack.
+                super.onBackPressed();
+            } else {
+                // Otherwise, select the previous step.
+                mPager.setCurrentItem(mPager.getCurrentItem() - 1);
+            }
         }
     }
 
@@ -139,5 +170,66 @@ public class SelfAssessmentActivity extends FragmentActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private class viewpagerAdapter extends FragmentStatePagerAdapter
+    {
+        public viewpagerAdapter(FragmentManager fm)
+        {
+            super(fm);
+        }
+
+        @Override
+        public SlideFragment getItem(int position)
+        {
+            return SlideFragment.newInstance("Page: "+Integer.toString(position));
+        }
+
+        @Override
+        public int getCount()
+        {
+            return NUM_PAGES;
+        }
+    }
+
+    private class ZoomOutPageTransformer implements ViewPager.PageTransformer
+    {
+        private static final float MIN_SCALE = 0.85f;
+        private static final float MIN_ALPHA = 0.5f;
+
+        public void transformPage(View view, float position)
+        {
+            int pageWidth = view.getWidth();
+            int pageHeight = view.getHeight();
+
+            if (position < -1) { // [-Infinity,-1)
+                // This page is way off-screen to the left.
+                view.setAlpha(0);
+
+            } else if (position <= 1) { // [-1,1]
+                // Modify the default slide transition to shrink the page as well
+                float scaleFactor = Math.max(MIN_SCALE, 1 - Math.abs(position));
+                float vertMargin = pageHeight * (1 - scaleFactor) / 2;
+                float horzMargin = pageWidth * (1 - scaleFactor) / 2;
+                if (position < 0) {
+                    view.setTranslationX(horzMargin - vertMargin / 2);
+                } else {
+                    view.setTranslationX(-horzMargin + vertMargin / 2);
+                }
+
+                // Scale the page down (between MIN_SCALE and 1)
+                view.setScaleX(scaleFactor);
+                view.setScaleY(scaleFactor);
+
+                // Fade the page relative to its size.
+                view.setAlpha(MIN_ALPHA +
+                        (scaleFactor - MIN_SCALE) /
+                                (1 - MIN_SCALE) * (1 - MIN_ALPHA));
+
+            } else { // (1,+Infinity]
+                // This page is way off-screen to the right.
+                view.setAlpha(0);
+            }
+        }
     }
 }
