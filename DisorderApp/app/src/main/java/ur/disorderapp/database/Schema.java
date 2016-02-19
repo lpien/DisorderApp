@@ -27,6 +27,26 @@ public class Schema
             public static final String NAME = "name";
         }
     }
+
+    //A Table storing the userId and password
+    public static final class AccountTable
+    {
+        public static final String NAME = "account_info";
+
+        public static final class Cols
+        {
+            public static final String UID = "uid";
+
+            public static final String PASSWORD = "password";
+        }
+    }
+
+    //a table that is going to store the data temporarily if no internet connection
+//    public static final class Buffer
+//    {
+//
+//    }
+
     //A table record the user's living habits taken from their self-monitoring results
     public static final class HabitTable
     {

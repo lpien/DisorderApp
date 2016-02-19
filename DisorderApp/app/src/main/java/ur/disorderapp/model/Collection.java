@@ -28,6 +28,7 @@ public class Collection
     private static Collection sCollection;
     //private Map<String, Goal> Goal_collection;
     private Map<String, SelfAssessmentData> SelfAssessmentData_collection;
+    private Map<String,String> Account_collection;
     private final SQLiteDatabase Database;
 
     public Collection(Context appContext)//Constructor
@@ -35,7 +36,8 @@ public class Collection
         Context appContext1 = appContext.getApplicationContext();
         assessmentCounter = 0;
         //Goal_collection = new HashMap<>();
-         SelfAssessmentData_collection = new HashMap<>();
+        SelfAssessmentData_collection = new HashMap<>();
+        Account_collection = new HashMap<>();
         Database = new DatabaseHelper(appContext1).getWritableDatabase();
 
         //Initialize goal table
@@ -51,6 +53,16 @@ public class Collection
         values.put(Schema.GoalTable.Cols.STATUS, goal.getStatus().toString());
         values.put(Schema.GoalTable.Cols.PROGRESS, goal.getProgress());
         values.put(Schema.GoalTable.Cols.NAME, goal.getName());
+
+        return values;
+    }
+
+    private static ContentValues getContentValues_account(String uid, String pw)
+    {
+        ContentValues values = new ContentValues();
+
+        values.put(Schema.AccountTable.Cols.UID, uid);
+        values.put(Schema.AccountTable.Cols.PASSWORD, pw);
 
         return values;
     }
@@ -81,10 +93,15 @@ public class Collection
     {
         ContentValues values = getContentValues_selfMonitoringData(data);
         Database.insert(Schema.GoalTable.NAME, null, values);
-
         SelfAssessmentData_collection.put(Integer.toString(assessmentCounter), data);
-
         assessmentCounter++;
+    }
+
+    public void addAccount(String uid, String pw)
+    {
+        ContentValues values = getContentValues_account(uid,pw);
+        Database.insert(Schema.AccountTable.NAME,null,values);
+        Account_collection.put(uid,pw);
     }
 
     //Updating goal status / progress using the name of the goal
@@ -176,8 +193,4 @@ public class Collection
         }
         return list;
     }
-
-
-
-
 }
