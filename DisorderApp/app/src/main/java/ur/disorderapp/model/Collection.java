@@ -44,10 +44,12 @@ public class Collection
         this.addGoal(new Goal(0, GoalStatus.UNACTIVATED, "sugar"));
         this.addGoal(new Goal(0, GoalStatus.UNACTIVATED, "sleep"));
 
+        //Add an account for demo
+        this.addAccount("root","1234567890");
+
     }
 
-    private static ContentValues getContentValues_goal(Goal goal)
-    {
+    private static ContentValues getContentValues_goal(Goal goal) {
         ContentValues values = new ContentValues();
 
         values.put(Schema.GoalTable.Cols.STATUS, goal.getStatus().toString());
@@ -89,8 +91,7 @@ public class Collection
         ContentValues values = getContentValues_goal(goal);
         Database.insert(Schema.GoalTable.NAME, null, values);
     }
-    public void addSelfAssessmentData(SelfAssessmentData data)
-    {
+    public void addSelfAssessmentData(SelfAssessmentData data) {
         ContentValues values = getContentValues_selfMonitoringData(data);
         Database.insert(Schema.GoalTable.NAME, null, values);
         SelfAssessmentData_collection.put(Integer.toString(assessmentCounter), data);
@@ -99,8 +100,8 @@ public class Collection
 
     public void addAccount(String uid, String pw)
     {
-        ContentValues values = getContentValues_account(uid,pw);
-        Database.insert(Schema.AccountTable.NAME,null,values);
+        ContentValues values = getContentValues_account(uid, pw);
+        Database.insert(Schema.AccountTable.NAME, null, values);
         Account_collection.put(uid,pw);
     }
 
@@ -115,8 +116,7 @@ public class Collection
 
     public static Collection get(Context c)
     {
-        if(sCollection == null)
-        {
+        if(sCollection == null) {
             sCollection = new Collection(c);
         }
         return sCollection;
@@ -140,6 +140,14 @@ public class Collection
         return new DatabaseCursorWrapper(cursor);
     }
 
+    private DatabaseCursorWrapper queryAccount(String where, String[] args)
+    {
+        Cursor cursor = Database.query(Schema.AccountTable.NAME,
+                null,where,args,null,
+                null,null);
+        return new DatabaseCursorWrapper(cursor);
+    }
+
     // returns the current status of the goal of given name
     public GoalStatus checkStatus(String name)
     {
@@ -150,10 +158,11 @@ public class Collection
         {
             wrapper.moveToFirst();
 
-            Goal goal = wrapper.getGoal();
-            status = goal.getStatus();
-            wrapper.moveToNext();
-
+            while (!wrapper.isAfterLast()) {
+                Goal goal = wrapper.getGoal();
+                status = goal.getStatus();
+                wrapper.moveToNext();
+            }
         }
 
         return status;
@@ -168,13 +177,30 @@ public class Collection
         {
             wrapper.moveToFirst();
 
-            Goal goal = wrapper.getGoal();
-            progress = goal.getProgress();
-            wrapper.moveToNext();
-
+            while (!wrapper.isAfterLast()) {
+                Goal goal = wrapper.getGoal();
+                progress = goal.getProgress();
+                wrapper.moveToNext();
+            }
         }
 
         return progress;
+    }
+
+    //return true if the password matches uid
+    public boolean login(String uid, String pw)
+    {
+        try (DatabaseCursorWrapper wrapper = queryAccount("UID=?", new String[]{uid})) {
+            wrapper.moveToFirst();
+            String password = wrapper.getPassword();
+            if(password==null) {
+                return false;
+            }
+            if(password.equals(pw)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     //return a full list of SelfAssessmentData records
@@ -184,8 +210,7 @@ public class Collection
 
         try (DatabaseCursorWrapper wrapper = querySelfAssessmentData(null, null)) {
             wrapper.moveToFirst();
-            while (!wrapper.isAfterLast())
-            {
+            while (!wrapper.isAfterLast()) {
                 SelfAssessmentData data = wrapper.getSelfAssessmentData();
                 list.add(data);
                 wrapper.moveToNext();

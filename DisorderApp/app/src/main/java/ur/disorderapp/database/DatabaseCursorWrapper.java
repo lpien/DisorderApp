@@ -34,6 +34,17 @@ public class DatabaseCursorWrapper extends CursorWrapper
         return new Goal(progress, status, name);
     }
 
+    public String getPassword()
+    {
+        try {
+            return getString(getColumnIndex(Schema.AccountTable.Cols.PASSWORD));
+        } catch (Exception e)
+        {
+            return null;
+        }
+
+    }
+
     public SelfAssessmentData getSelfAssessmentData()
     {
         String food = getString(getColumnIndex(Schema.HabitTable.Cols.FOOD));
