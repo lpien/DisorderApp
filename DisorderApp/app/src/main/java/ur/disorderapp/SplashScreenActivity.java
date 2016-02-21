@@ -17,8 +17,7 @@ public class SplashScreenActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        new Handler().postDelayed(new Runnable()
-        {
+        new Handler().postDelayed(new Runnable() {
 
             /*
              * Showing splash screen with a timer. This will be useful when you
@@ -26,8 +25,7 @@ public class SplashScreenActivity extends AppCompatActivity
              */
 
             @Override
-            public void run()
-            {
+            public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
                 Intent i = new Intent(SplashScreenActivity.this, LoginActivity.class);
@@ -38,4 +36,6 @@ public class SplashScreenActivity extends AppCompatActivity
         }, SPLASH_TIME_OUT);
 
     }
+
+
 }

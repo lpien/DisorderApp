@@ -19,7 +19,6 @@
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
@@ -30,6 +29,8 @@
             android:label="MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+
+        <!-- Sugar Program Home screen -->
         <activity
             android:name=".SugarProgramActivity"
             android:label="@string/title_activity_sugar_program"
@@ -39,6 +40,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ur.disorderapp.MainActivity"/>
         </activity>
+
+        <!-- Sugar Program Self Assessment screen -->
         <activity
             android:name=".SelfAssessmentActivity"
             android:label="@string/title_activity_self_assessment"
@@ -48,7 +51,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ur.disorderapp.SugarProgramActivity"/>
         </activity>
+
+        <!-- Login screen -->
         <activity android:name=".LoginActivity"/>
+
     </application>
 
 </manifest>

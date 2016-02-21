@@ -153,4 +153,12 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+//    @Override
+//    protected void onUserLeaveHint ()
+//    {
+//        super.onUserLeaveHint();
+//        Intent i = new Intent(MainActivity.this, SplashScreenActivity.class);
+//        startActivity(i);
+//    }
 }

@@ -19,7 +19,7 @@ public class SugarProgramActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
 
-    Button mSodaTask, mSelfTest;
+    Button mSelfTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,7 @@ public class SugarProgramActivity extends AppCompatActivity
         setContentView(R.layout.activity_sugar_program);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
