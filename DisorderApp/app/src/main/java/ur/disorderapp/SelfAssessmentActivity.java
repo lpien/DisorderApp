@@ -26,17 +26,13 @@ import java.util.List;
 public class SelfAssessmentActivity extends FragmentActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
-    //ViewPager mPager;
     private final String TAG = "SelfAssessmentActivity";
-
-    //changes
-    PageAdapter pageAdapter;
     private ViewPager mPager;
 
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
-    private static final int NUM_PAGES = 5;
+    private static final int NUM_PAGES = 6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -51,16 +47,10 @@ public class SelfAssessmentActivity extends FragmentActivity
 
         mPager = (ViewPager) findViewById(R.id.view_pager);
 
-        //changes
-        List<Fragment> fragments = getFragments();
-        pageAdapter = new PageAdapter(getSupportFragmentManager(), fragments);
-        mPager.setAdapter(pageAdapter);
-
         /*
       The pager adapter, which provides the pages to the view pager widget.
      */
         PagerAdapter pagerAdapter = new viewpagerAdapter(getSupportFragmentManager());
-
         mPager.setAdapter(pagerAdapter);
         mPager.setPageTransformer(true, new ZoomOutPageTransformer());
 
@@ -105,13 +95,13 @@ public class SelfAssessmentActivity extends FragmentActivity
         }
     }
 
-    private List<Fragment> getFragments(){
+    /*private List<Fragment> getFragments(){
         List<Fragment> fList = new ArrayList<Fragment>();
         fList.add(MyFragment.newInstance("Fragment 1"));
         fList.add(MyFragment.newInstance("Fragment 2"));
         Log.i(TAG, "getFragments() called");
         return fList;
-    }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -163,6 +153,8 @@ public class SelfAssessmentActivity extends FragmentActivity
         return true;
     }
 
+    public int pos;
+
     private class viewpagerAdapter extends FragmentStatePagerAdapter
     {
         public viewpagerAdapter(FragmentManager fm)
@@ -173,7 +165,9 @@ public class SelfAssessmentActivity extends FragmentActivity
         @Override
         public SlideFragment getItem(int position)
         {
-            return SlideFragment.newInstance("Page: "+Integer.toString(position));
+            Log.i(TAG, "getItem() called, position = "+position);
+            pos = position;
+            return SlideFragment.newInstance(Integer.toString(position));
         }
 
         @Override
