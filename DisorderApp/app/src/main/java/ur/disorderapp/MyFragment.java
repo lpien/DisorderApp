@@ -5,6 +5,7 @@ import android.os.Bundle;
 //import android.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import android.support.v4.app.Fragment;
 public class MyFragment extends android.support.v4.app.Fragment {
 
     public static final String EXTRA_MESSAGE = "EXTRA_MESSAGE";
+    public static final String TAG = "MYFRAGMENT";
     Button b1, b2, b3, b4;
 
     public MyFragment() {
@@ -25,6 +27,7 @@ public class MyFragment extends android.support.v4.app.Fragment {
     }
 
     public static final MyFragment newInstance(String message){
+        Log.i(TAG, "newInstance() MyFragment called");
         MyFragment f = new MyFragment();
         Bundle b1 = new Bundle(1);
         b1.putString(EXTRA_MESSAGE, message);

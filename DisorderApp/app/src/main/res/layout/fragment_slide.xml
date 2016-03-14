@@ -8,6 +8,48 @@
     <LinearLayout
         android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/frag_title"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"
+            android:id="@+id/frag_btn_0"
+            android:background="#ADC0D8"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            android:id="@+id/frag_btn_1"
+            android:background="#EA8F64"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:id="@+id/frag_btn_2"
+            android:background="#cf66b3"/>
+    </LinearLayout>
+
+
+    <!--<LinearLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
@@ -52,6 +94,11 @@
                 android:layout_margin="5dp"/>
 
         </LinearLayout>
+<<<<<<< HEAD
     </LinearLayout>
+=======
+<<<<<<< HEAD
+    </LinearLayout>-->
+
 
 </FrameLayout>
