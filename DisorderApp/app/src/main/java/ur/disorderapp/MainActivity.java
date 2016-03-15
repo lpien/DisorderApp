@@ -1,9 +1,10 @@
 package ur.disorderapp;
 
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity
 
     private final String TAG = "MainActivity.class";
     private Collection sCollection;
+    SoundPool mySound;
+    int soundId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,6 +42,9 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         Log.d(TAG, "onCreate() called");
+
+        mySound = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+        soundId = mySound.load(this, R.raw.adele, 1);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -53,8 +59,9 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
+
             }
         });
 
@@ -98,6 +105,9 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
+    public void playSound(View view){
+        mySound.play(soundId, 1, 1, 1, 0, 1);
+    }
 
     @Override
     public void onBackPressed()
