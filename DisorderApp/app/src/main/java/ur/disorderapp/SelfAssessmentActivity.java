@@ -27,20 +27,12 @@ public class SelfAssessmentActivity extends FragmentActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
     private final String TAG = "SelfAssessmentActivity";
-    //ViewPager mPager;
-    private final String TAG = "SelfAssessmentActivity";
-
-    public static final String KEY = "INT KEY";
-    //changes
-    PageAdapter pageAdapter;
     private ViewPager mPager;
-    int pos = 0;
 
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
     private static final int NUM_PAGES = 6;
-    private static final int NUM_PAGES = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -54,15 +46,6 @@ public class SelfAssessmentActivity extends FragmentActivity
         //setSupportActionBar(toolbar);
 
         mPager = (ViewPager) findViewById(R.id.view_pager);
-
-        List<Fragment> fragments = getFragments();
-        pageAdapter = new PageAdapter(getSupportFragmentManager(), fragments);
-        mPager.setAdapter(pageAdapter);
-
-        pos = pageAdapter.getItem();
-
-        Bundle b = new Bundle();
-        b.putInt(KEY, );
 
         /*
       The pager adapter, which provides the pages to the view pager widget.
@@ -110,17 +93,6 @@ public class SelfAssessmentActivity extends FragmentActivity
                 mPager.setCurrentItem(mPager.getCurrentItem() - 1);
             }
         }
-    }
-
-    /*private List<Fragment> getFragments(){
-        List<Fragment> fList = new ArrayList<Fragment>();
-        fList.add(MyFragment.newInstance("Fragment 1"));
-        fList.add(MyFragment.newInstance("Fragment 2"));
-        Log.i(TAG, "getFragments() called");
-        return fList;
-<<<<<<< HEAD
-    }*/
-
     }
 
     @Override
@@ -186,11 +158,11 @@ public class SelfAssessmentActivity extends FragmentActivity
         public SlideFragment getItem(int position)
         {
             Log.i(TAG, "getItem() called, position = "+position);
+            //pos = position;
+            //return SlideFragment.newInstance(Integer.toString(position));
+            //Log.i(TAG, "getItem() called position = " +position);
             pos = position;
             return SlideFragment.newInstance(Integer.toString(position));
-            Log.i(TAG, "getItem() called position = "+position );
-
-            return SlideFragment.newInstance("Page: "+Integer.toString(position));
         }
 
         @Override

@@ -22,10 +22,9 @@ public class SlideFragment extends Fragment
 
     public static int pos;
 
-    private static final String TAG = "SlideFragment";
     public static final String TAG = "SlideFragment";
 
-    Button btn_0, btn_1, btn_2;
+    //Button btn_0, btn_1, btn_2;
 
     public SlideFragment()
     {
@@ -34,13 +33,6 @@ public class SlideFragment extends Fragment
 
     public static SlideFragment newInstance(String text)
     {
-
-        Log.i(TAG, "newInstance() called");
-        //A Factory Method creating new instance
-        SlideFragment fragment = new SlideFragment();
-        Bundle bundle = new Bundle();
-        //bundle.putString(KEY, text);
-        bundle.putString(KEY, "texty");
 
         //A Factory Method creating new instance
         Log.i(TAG, "newInstance() called");
@@ -51,11 +43,6 @@ public class SlideFragment extends Fragment
         fragment.setArguments(bundle);
         return fragment;
     }
-
-    /*public static SlideFragment newFragment(String [] text)
-    {
-        Log.i(TAG, "newFragment() called");
-=======
 
     /*public static SlideFragment newFragment(String [] text)
     {
@@ -74,7 +61,6 @@ public class SlideFragment extends Fragment
         f.setArguments(args);
         return f;
 <<<<<<< HEAD
-    }*/
 
     }*/
 
@@ -88,45 +74,13 @@ public class SlideFragment extends Fragment
 
         Log.i(TAG, "onCreateView() called");
 
-        btn_0 = (Button) rootView.findViewById(R.id.frag_btn_0);
-        btn_1 = (Button) rootView.findViewById(R.id.frag_btn_1);
-        btn_2 = (Button) rootView.findViewById(R.id.frag_btn_2);
-
-        String strArgs = getArguments().getString(KEY);
-
-        setFragText(strArgs);
-
-        /*String btn_text_0 = getArguments().getString(KEY_0);
-=======
-        String btn_text_0 = getArguments().getString(KEY_0);
->>>>>>> 54f7ae1d279a953a9196a85f5cf68e9927b7b1b1
-        String btn_text_1 = getArguments().getString(KEY_1);
-        String btn_text_2 = getArguments().getString(KEY_2);
-        String btn_text_3 = getArguments().getString(KEY_3);
->>>>>>> master
-
         TextView titleText = (TextView) rootView.findViewById(R.id.title_text_view);
         Button btn_0 = (Button) rootView.findViewById(R.id.frag_btn_0);
         Button btn_1 = (Button) rootView.findViewById(R.id.frag_btn_1);
         Button btn_2 = (Button) rootView.findViewById(R.id.frag_btn_2);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
+
         //Button btn_3 = (Button) rootView.findViewById(R.id.frag_btn_3);
 
-        btn_0.setText(R.string.hello_blank_fragment);
-        btn_1.setText(btn_text_1);
-        btn_2.setText(btn_text_2);
-        */
-
-        //btn_3.setText(btn_text_3);
-
-        Button btn_3 = (Button) rootView.findViewById(R.id.frag_btn_3);
-
-        btn_0.setText(btn_text_0);
-        btn_1.setText(btn_text_1);
-        btn_2.setText(btn_text_2);
-        btn_3.setText(btn_text_3);
 
 
         //TextView textView = (TextView) rootView.findViewById(R.id.fragment_text);
@@ -171,23 +125,6 @@ public class SlideFragment extends Fragment
         }
 
         return rootView;
-    }
-
-    public void setFragText(String position){
-        Log.d(TAG, "setFragText() called");
-        switch (position){
-            case "0": position = "1";
-                btn_0.setText("button1.a");
-                btn_1.setText("button2.a");
-                btn_2.setText("button3.a");
-                break;
-            case "1": position = "2";
-                btn_0.setText("button1.b");
-                btn_1.setText("button2.b");
-                btn_2.setText("button3.b");
-                break;
-            default: position = "1";
-        }
     }
 
 }
