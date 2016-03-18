@@ -2,6 +2,7 @@ package ur.disorderapp;
 
 import android.content.Intent;
 import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -43,8 +44,11 @@ public class MainActivity extends AppCompatActivity
 
         Log.d(TAG, "onCreate() called");
 
-        mySound = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
-        soundId = mySound.load(this, R.raw.adele, 1);
+        //MEDIAPLAYER
+        //mySound = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+        //soundId = mySound.load(this, R.raw.sample, 1);
+        final MediaPlayer sound = MediaPlayer.create(MainActivity.this, R.raw.sample);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -59,8 +63,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
+                sound.start();
 
             }
         });
