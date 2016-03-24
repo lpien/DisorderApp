@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 
@@ -75,9 +76,9 @@ public class SlideFragment extends Fragment
         Log.i(TAG, "onCreateView() called");
 
         TextView titleText = (TextView) rootView.findViewById(R.id.title_text_view);
-        Button btn_0 = (Button) rootView.findViewById(R.id.frag_btn_0);
-        Button btn_1 = (Button) rootView.findViewById(R.id.frag_btn_1);
-        Button btn_2 = (Button) rootView.findViewById(R.id.frag_btn_2);
+        ImageButton btn_0 = (ImageButton) rootView.findViewById(R.id.frag_btn_0);
+        ImageButton btn_1 = (ImageButton) rootView.findViewById(R.id.frag_btn_1);
+        ImageButton btn_2 = (ImageButton) rootView.findViewById(R.id.frag_btn_2);
 
         //Button btn_3 = (Button) rootView.findViewById(R.id.frag_btn_3);
 
@@ -89,39 +90,54 @@ public class SlideFragment extends Fragment
 
         if(pos == 0){
             titleText.setText("Which of these did you eat?");
-            btn_0.setText("A sugery drink");
+            btn_0.setImageResource(R.mipmap.coke);
+            btn_1.setImageResource(R.mipmap.donut);
+            btn_2.setImageResource(R.mipmap.coke);
+            /*btn_0.setImageResource("A sugery drink");
             btn_1.setText("A pastry");
-            btn_2.setText("Other");
+            btn_2.setText("Other");*/
         }
         else if(pos == 1){
             titleText.setText("How many did you consume?");
-            btn_0.setText("1");
-            btn_1.setText("2");
-            btn_2.setText("3");
+            btn_0.setImageResource(R.mipmap.ic_launcher);
+            btn_1.setImageResource(R.mipmap.ic_launcher);
+            btn_2.setImageResource(R.mipmap.ic_launcher);
         }
         else if(pos == 2){
             titleText.setText("When did you eat it?");
-            btn_0.setText("Morning");
+            btn_0.setImageResource(R.mipmap.morning);
+            btn_1.setImageResource(R.mipmap.afternoon);
+            btn_2.setImageResource(R.mipmap.night);
+            /*btn_0.setText("Morning");
             btn_1.setText("Afternoon");
-            btn_2.setText("Evening");
+            btn_2.setText("Evening");*/
         }
         else if(pos == 3){
             titleText.setText("Where did you eat it?");
-            btn_0.setText("Home");
+            btn_0.setImageResource(R.mipmap.ic_launcher);
+            btn_1.setImageResource(R.mipmap.ic_launcher);
+            btn_2.setImageResource(R.mipmap.ic_launcher);
+           /* btn_0.setText("Home");
             btn_1.setText("Work");
-            btn_2.setText("On the go");
+            btn_2.setText("On the go");*/
         }
         else if(pos == 4){
             titleText.setText("What did you eat it with?");
-            btn_0.setText("A meal");
+            btn_0.setImageResource(R.mipmap.ic_launcher);
+            btn_1.setImageResource(R.mipmap.ic_launcher);
+            btn_2.setImageResource(R.mipmap.ic_launcher);
+            /*btn_0.setText("A meal");
             btn_1.setText("Nothing");
-            btn_2.setText("Other");
+            btn_2.setText("Other");*/
         }
         else if(pos == 5){
             titleText.setText("How were you feeling?");
-            btn_0.setText("Hungry");
+            btn_0.setImageResource(R.mipmap.ic_launcher);
+            btn_1.setImageResource(R.mipmap.ic_launcher);
+            btn_2.setImageResource(R.mipmap.ic_launcher);
+            /*btn_0.setText("Hungry");
             btn_1.setText("Thirsty");
-            btn_2.setText("Other");
+            btn_2.setText("Other");*/
         }
 
         return rootView;
