@@ -39,8 +39,9 @@ public class SlideFragment extends Fragment
         Log.i(TAG, "newInstance() called");
         SlideFragment fragment = new SlideFragment();
         Bundle bundle = new Bundle();
-        bundle.putString(KEY, text);
+        //bundle.putString(KEY, text);
         pos = Integer.parseInt(text);
+        bundle.putInt(KEY,pos);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -73,7 +74,11 @@ public class SlideFragment extends Fragment
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_slide, container, false);
 
+        Bundle args = getArguments();
+        int position = args.getInt(KEY);
+
         Log.i(TAG, "onCreateView() called");
+        Log.i(TAG,"[DEBUG]: position: "+position);
 
         TextView titleText = (TextView) rootView.findViewById(R.id.title_text_view);
         ImageButton btn_0 = (ImageButton) rootView.findViewById(R.id.frag_btn_0);
@@ -88,22 +93,22 @@ public class SlideFragment extends Fragment
         //textView.setText(text);
 
 
-        if(pos == 0){
+        if(position == 0){
             titleText.setText("Which of these did you eat?");
-            btn_0.setImageResource(R.mipmap.coke);
-            btn_1.setImageResource(R.mipmap.donut);
-            btn_2.setImageResource(R.mipmap.coke);
+            btn_0.setImageResource(R.drawable.cocacola);
+            btn_1.setImageResource(R.drawable.donut);
+            btn_2.setImageResource(R.drawable.cocacola);
             /*btn_0.setImageResource("A sugery drink");
             btn_1.setText("A pastry");
             btn_2.setText("Other");*/
         }
-        else if(pos == 1){
+        else if(position == 1){
             titleText.setText("How many did you consume?");
             btn_0.setImageResource(R.mipmap.ic_launcher);
             btn_1.setImageResource(R.mipmap.ic_launcher);
             btn_2.setImageResource(R.mipmap.ic_launcher);
         }
-        else if(pos == 2){
+        else if(position == 2){
             titleText.setText("When did you eat it?");
             btn_0.setImageResource(R.mipmap.morning);
             btn_1.setImageResource(R.mipmap.afternoon);
@@ -112,7 +117,7 @@ public class SlideFragment extends Fragment
             btn_1.setText("Afternoon");
             btn_2.setText("Evening");*/
         }
-        else if(pos == 3){
+        else if(position == 3){
             titleText.setText("Where did you eat it?");
             btn_0.setImageResource(R.mipmap.ic_launcher);
             btn_1.setImageResource(R.mipmap.ic_launcher);
@@ -121,7 +126,7 @@ public class SlideFragment extends Fragment
             btn_1.setText("Work");
             btn_2.setText("On the go");*/
         }
-        else if(pos == 4){
+        else if(position == 4){
             titleText.setText("What did you eat it with?");
             btn_0.setImageResource(R.mipmap.ic_launcher);
             btn_1.setImageResource(R.mipmap.ic_launcher);
@@ -130,7 +135,7 @@ public class SlideFragment extends Fragment
             btn_1.setText("Nothing");
             btn_2.setText("Other");*/
         }
-        else if(pos == 5){
+        else if(position == 5){
             titleText.setText("How were you feeling?");
             btn_0.setImageResource(R.mipmap.ic_launcher);
             btn_1.setImageResource(R.mipmap.ic_launcher);
