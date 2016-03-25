@@ -68,6 +68,7 @@ public class SlideFragment extends Fragment
         if(position == 0){
             titleText.setText("Which of these did you eat?");
 <<<<<<< HEAD
+<<<<<<< HEAD
             btn_0.setImageResource(R.drawable.cocacola);
             btn_1.setImageResource(R.drawable.other);
             btn_2.setImageResource(R.drawable.other);
@@ -97,6 +98,9 @@ public class SlideFragment extends Fragment
 =======
             btn_0.setText("A sugery drink");
 >>>>>>> parent of f5e3784... inserted images
+=======
+            btn_0.setText("A sugery drink");
+>>>>>>> parent of f5e3784... inserted images
             btn_1.setText("A pastry");
             btn_2.setText("Other");
         }
@@ -115,10 +119,14 @@ public class SlideFragment extends Fragment
         else if(position == 3){
             titleText.setText("Where did you eat it?");
 <<<<<<< HEAD
+<<<<<<< HEAD
             btn_0.setImageResource(R.drawable.home);
             btn_1.setImageResource(R.drawable.work);
             btn_2.setImageResource(R.drawable.go);
            /* btn_0.setText("Home");
+=======
+            btn_0.setText("Home");
+>>>>>>> parent of f5e3784... inserted images
 =======
             btn_0.setText("Home");
 >>>>>>> parent of f5e3784... inserted images
@@ -128,10 +136,14 @@ public class SlideFragment extends Fragment
         else if(position == 4){
             titleText.setText("What did you eat it with?");
 <<<<<<< HEAD
+<<<<<<< HEAD
             btn_0.setImageResource(R.drawable.meal);
             btn_1.setImageResource(R.drawable.other);
             btn_2.setImageResource(R.drawable.other);
             /*btn_0.setText("A meal");
+=======
+            btn_0.setText("A meal");
+>>>>>>> parent of f5e3784... inserted images
 =======
             btn_0.setText("A meal");
 >>>>>>> parent of f5e3784... inserted images
@@ -141,10 +153,14 @@ public class SlideFragment extends Fragment
         else if(position == 5){
             titleText.setText("How were you feeling?");
 <<<<<<< HEAD
+<<<<<<< HEAD
             btn_0.setImageResource(R.drawable.hungry);
             btn_1.setImageResource(R.drawable.thirsty);
             btn_2.setImageResource(R.drawable.notsure);
             /*btn_0.setText("Hungry");
+=======
+            btn_0.setText("Hungry");
+>>>>>>> parent of f5e3784... inserted images
 =======
             btn_0.setText("Hungry");
 >>>>>>> parent of f5e3784... inserted images
