@@ -30,9 +30,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="230dp"
                 android:layout_margin="5dp"
+                android:layout_gravity="center"
                 android:scaleType="fitCenter"
                 android:adjustViewBounds="true"
-                android:layout_gravity="center"
                 android:id="@+id/frag_btn_0"
                 android:background="#ADC0D8"
                 android:layout_weight="1" />

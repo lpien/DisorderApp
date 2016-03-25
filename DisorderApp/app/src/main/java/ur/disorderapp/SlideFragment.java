@@ -31,8 +31,11 @@ public class SlideFragment extends Fragment
         Log.i(TAG, "newInstance() called");
         SlideFragment fragment = new SlideFragment();
         Bundle bundle = new Bundle();
+        //int position = Integer.parseInt(text);
         int pos = Integer.parseInt(text);
-        bundle.putInt(KEY,pos);
+        bundle.putInt(KEY, pos);
+        //bundle.putString(KEY, text);
+
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -45,11 +48,10 @@ public class SlideFragment extends Fragment
         ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_slide, container, false);
 
+        Log.i(TAG, "onCreateView() called");
+
         Bundle args = getArguments();
         int position = args.getInt(KEY);
-
-        Log.i(TAG, "onCreateView() called");
-        Log.i(TAG,"[DEBUG]: position: "+position);
 
         TextView titleText = (TextView) rootView.findViewById(R.id.title_text_view);
         ImageButton btn_0 = (ImageButton) rootView.findViewById(R.id.frag_btn_0);
@@ -67,14 +69,14 @@ public class SlideFragment extends Fragment
         if(position == 0){
             titleText.setText("Which of these did you eat?");
             btn_0.setImageResource(R.drawable.cocacola);
-            btn_1.setImageResource(R.drawable.donut);
+            btn_1.setImageResource(R.drawable.other);
             btn_2.setImageResource(R.drawable.other);
             /*btn_0.setText("A sugery drink");
             btn_0.setBackgroundResource(R.drawable.cocacola);
             btn_1.setText("A pastry");
             btn_2.setText("Other");*/
         }
-        else if(position ==1){
+        else if(position == 1){
             titleText.setText("Test");
             btn_0.setImageResource(R.drawable.two);
             btn_1.setImageResource(R.drawable.two);
@@ -87,6 +89,20 @@ public class SlideFragment extends Fragment
             btn_1.setImageResource(R.drawable.two);
             btn_2.setImageResource(R.drawable.three);
         }*/
+        else if(position == 2){
+            btn_0.setImageResource(R.mipmap.coke);
+            btn_1.setImageResource(R.mipmap.donut);
+            btn_2.setImageResource(R.mipmap.coke);
+            /*btn_0.setImageResource("A sugery drink");
+            btn_1.setText("A pastry");
+            btn_2.setText("Other");*/
+        }
+        else if(position == 1){
+            titleText.setText("How many did you consume?");
+            btn_0.setImageResource(R.mipmap.ic_launcher);
+            btn_1.setImageResource(R.mipmap.ic_launcher);
+            btn_2.setImageResource(R.mipmap.ic_launcher);
+        }
         else if(position == 2){
             titleText.setText("When did you eat it?");
             btn_0.setImageResource(R.mipmap.morning);
