@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 
@@ -53,9 +54,10 @@ public class SlideFragment extends Fragment
         int position = args.getInt(KEY);
 
         TextView titleText = (TextView) rootView.findViewById(R.id.title_text_view);
-        Button btn_0 = (Button) rootView.findViewById(R.id.frag_btn_0);
-        Button btn_1 = (Button) rootView.findViewById(R.id.frag_btn_1);
-        Button btn_2 = (Button) rootView.findViewById(R.id.frag_btn_2);
+        ImageButton btn_0 = (ImageButton) rootView.findViewById(R.id.frag_btn_0);
+        ImageButton btn_1 = (ImageButton) rootView.findViewById(R.id.frag_btn_1);
+        ImageButton btn_2 = (ImageButton) rootView.findViewById(R.id.frag_btn_2);
+        Log.i(TAG, "onCreateView() [DEBUG]");
 
         //Button btn_3 = (Button) rootView.findViewById(R.id.frag_btn_3);
 
@@ -66,30 +68,38 @@ public class SlideFragment extends Fragment
 
 
         if(position == 0){
+            Log.i(TAG, "position 0");
             titleText.setText("Which of these did you eat?");
             btn_0.setImageResource(R.drawable.cocacola);
-            btn_1.setImageResource(R.drawable.other);
+            btn_1.setImageResource(R.drawable.donut);
             btn_2.setImageResource(R.drawable.other);
             /*btn_0.setText("A sugery drink");
-            btn_0.setBackgroundResource(R.drawable.cocacola);
             btn_1.setText("A pastry");
             btn_2.setText("Other");*/
         }
-        else if(position == 1){
-            titleText.setText("Test");
-            btn_0.setImageResource(R.drawable.two);
-            btn_1.setImageResource(R.drawable.two);
-            btn_2.setImageResource(R.drawable.three);
+        if(position == 1){
+            Log.i(TAG, "position 1 [DEBUG]");
+            titleText.setText("How many did you consume?");
+            Log.i(TAG, "position 1 [DEBUG 1]");
+            btn_0.setImageResource(R.drawable.donut);
+            Log.i(TAG, "position 1 [DEBUG 2]");
+            btn_1.setImageResource(R.drawable.other);
+            Log.i(TAG, "position 1 [DEBUG 3]");
+            btn_2.setImageResource(R.drawable.other);
+            Log.i(TAG, "position 1 [DEBUG 4]");
         }
-        else if(position == 2){
-            btn_0.setImageResource(R.mipmap.coke);
-            btn_1.setImageResource(R.mipmap.donut);
-            btn_2.setImageResource(R.mipmap.coke);
+        if(position == 2){
+            Log.i(TAG, "position 2 [DEBUG]");
+            titleText.setText("When did you consume it?");
+            btn_0.setImageResource(R.drawable.other);
+            btn_1.setImageResource(R.drawable.other);
+            btn_2.setImageResource(R.drawable.other);
             /*btn_0.setImageResource("A sugery drink");
             btn_1.setText("A pastry");
             btn_2.setText("Other");*/
         }
-        else if(position == 3){
+        if(position == 3){
+            Log.i(TAG, "position 3 [DEBUG]");
             titleText.setText("Where did you eat it?");
             btn_0.setImageResource(R.drawable.home);
             btn_1.setImageResource(R.drawable.work);
@@ -98,16 +108,21 @@ public class SlideFragment extends Fragment
             btn_1.setText("Work");
             btn_2.setText("On the go");*/
         }
-        else if(position == 4){
+        if(position == 4){
+            Log.i(TAG, "position 4 [DEBUG]");
             titleText.setText("What did you eat it with?");
-            btn_0.setImageResource(R.drawable.meal);
+            btn_0.setImageResource(R.drawable.other);
             btn_1.setImageResource(R.drawable.other);
             btn_2.setImageResource(R.drawable.other);
             /*btn_0.setText("A meal");
             btn_1.setText("Nothing");
             btn_2.setText("Other");*/
         }
-        else if(position == 5){
+        if(position == 5){
+            Log.i(TAG, "position 5 [DEBUG]");
+
+            // BUUUUGGGG
+
             titleText.setText("How were you feeling?");
             btn_0.setImageResource(R.drawable.hungry);
             btn_1.setImageResource(R.drawable.thirsty);
