@@ -17,10 +17,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.mikhaellopez.circularprogressbar.CircularProgressBar;
+
+import ur.disorderapp.model.Collection;
+
 public class SelfAssessmentActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
     private ViewPager mPager;
+
+    public static Collection sCollection;
 
     /**
      * The number of pages (wizard steps) to show in this demo.
@@ -64,6 +70,17 @@ public class SelfAssessmentActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //Setting up progress bar
+        sCollection = Collection.get(getApplicationContext());
+        int progress = sCollection.checkProgress("sugar");
+        View headerView = navigationView.getHeaderView(0);
+        CircularProgressBar sugarProgress =
+                (CircularProgressBar) headerView.findViewById(R.id.sugar_progress);
+        // 2500ms = 2.5s
+        int animationDuration = 5000;
+        // Default duration = 1500ms
+        sugarProgress.setProgressWithAnimation(progress, animationDuration);
     }
 
     @Override
@@ -123,9 +140,7 @@ public class SelfAssessmentActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
+        }  else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 

@@ -1,5 +1,6 @@
 package ur.disorderapp.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import ur.disorderapp.EnumValues.Feeling;
@@ -17,11 +18,14 @@ public class SelfAssessmentData
     private Situation mSituation;
     private Feeling mFeeling;
 
-    private Date mDate;
+    private String mDate;
+
+    private int mSent;//a boolean indicating if the data is sent
+    private int mSignaled;//indicating if this is a signaled data
 
     public SelfAssessmentData(String food, int amount,
                               TimePeriod time, Location location,
-                              Situation situation, Feeling feeling, Date date)
+                              Situation situation, Feeling feeling, int signal)
     {
         mFood = food;
         mAmount = amount;
@@ -29,24 +33,41 @@ public class SelfAssessmentData
         mLocation = location;
         mSituation = situation;
         mFeeling = feeling;
-        mDate = date;
+        mDate = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+        mSent = 0;
+        mSignaled = signal;
+    }
+
+    public int isSignaled()
+    {
+        return  mSignaled;
+    }
+
+    public int isSent()
+    {
+        return mSent;
+    }
+
+    public void setSent(int s)//set mSent to true
+    {
+        mSent = s;
     }
 
     public String getFood() {
         return mFood;
     }
 
-    public void setFood(String food) {
-        mFood = food;
-    }
+//    public void setFood(String food) {
+//        mFood = food;
+//    }
 
     public int getAmount() {
         return mAmount;
     }
 
-    public void setAmount(int amount) {
-        mAmount = amount;
-    }
+//    public void setAmount(int amount) {
+//        mAmount = amount;
+//    }
 
     public TimePeriod getTime() {
         return mTime;
@@ -60,31 +81,31 @@ public class SelfAssessmentData
         return mLocation;
     }
 
-    public void setLocation(Location location) {
-        mLocation = location;
-    }
+//    public void setLocation(Location location) {
+//        mLocation = location;
+//    }
 
     public Situation getSituation() {
         return mSituation;
     }
 
-    public void setSituation(Situation situation) {
-        mSituation = situation;
-    }
+//    public void setSituation(Situation situation) {
+//        mSituation = situation;
+//    }
 
     public Feeling getFeeling() {
         return mFeeling;
     }
 
-    public void setFeeling(Feeling feeling) {
-        mFeeling = feeling;
-    }
+//    public void setFeeling(Feeling feeling) {
+//        mFeeling = feeling;
+//    }
 
-    public Date getDate() {
+    public String getDate() {
         return mDate;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         mDate = date;
     }
 }

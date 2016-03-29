@@ -23,6 +23,7 @@
             android:layout_height       ="wrap_content"
             android:layout_weight       ="1"
             android:orientation         ="horizontal">
+
             <Button
                 android:id              ="@+id/main_btn_sugar"
                 android:layout_width    ="0dp"

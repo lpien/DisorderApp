@@ -27,12 +27,13 @@
             />
 
         <com.mikhaellopez.circularprogressbar.CircularProgressBar
-            android:layout_width                ="wrap_content"
-            android:layout_height               ="wrap_content"
+            android:layout_width                ="50dp"
+            android:layout_height               ="50dp"
             app:background_progressbar_color    ="#cdf3ff"
-            app:background_progressbar_width    ="5dp"
+            app:background_progressbar_width    ="2dp"
             app:progressbar_color               ="#547a86"
-            app:progressbar_width               ="40dp" />
+            app:progressbar_width               ="8dp"
+            android:id="@+id/sugar_progress"/>
 
     </LinearLayout>
 
@@ -48,12 +49,13 @@
             android:text                        ="Exercise"/>
 
         <com.mikhaellopez.circularprogressbar.CircularProgressBar
-            android:layout_width                ="wrap_content"
-            android:layout_height               ="wrap_content"
+            android:layout_width                ="50dp"
+            android:layout_height               ="50dp"
             app:background_progressbar_color    ="#cdf3ff"
-            app:background_progressbar_width    ="5dp"
+            app:background_progressbar_width    ="2dp"
             app:progressbar_color               ="#547a86"
-            app:progressbar_width               ="40dp"
+            app:progressbar_width               ="8dp"
+            android:id="@+id/exercise_progress"
             />
 
     </LinearLayout>
@@ -67,12 +69,14 @@
             android:text                        ="Sleep"/>
 
         <com.mikhaellopez.circularprogressbar.CircularProgressBar
-            android:layout_width                ="wrap_content"
-            android:layout_height               ="wrap_content"
+            android:layout_width                ="50dp"
+            android:layout_height               ="50dp"
             app:background_progressbar_color    ="#cdf3ff"
-            app:background_progressbar_width    ="5dp"
+            app:background_progressbar_width    ="2dp"
             app:progressbar_color               ="#547a86"
-            app:progressbar_width               ="40dp" />
+            app:progressbar_width               ="8dp"
+            android:id="@+id/sleep_progress"
+            />
 
     </LinearLayout>
 

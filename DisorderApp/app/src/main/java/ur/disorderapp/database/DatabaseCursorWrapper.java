@@ -4,8 +4,6 @@ package ur.disorderapp.database;
 import android.database.Cursor;
 import android.database.CursorWrapper;
 
-import java.util.Date;
-
 import ur.disorderapp.EnumValues.Feeling;
 import ur.disorderapp.EnumValues.Location;
 import ur.disorderapp.EnumValues.Situation;
@@ -68,18 +66,21 @@ public class DatabaseCursorWrapper extends CursorWrapper
 
         Feeling feeling = Feeling.valueOf(
                 getString(
-                    getColumnIndex(
-                            Schema.HabitTable.Cols.FEELING)));
+                        getColumnIndex(
+                                Schema.HabitTable.Cols.FEELING)));
 
-        Date date = new Date(getLong(getColumnIndex(Schema.HabitTable.Cols.DATE)));
+        int isSent = getInt(getColumnIndex(Schema.HabitTable.Cols.SENT));
 
-        return new SelfAssessmentData(food,amount,time,location,situation,feeling,date);
+        int signal = getInt(getColumnIndex(Schema.HabitTable.Cols.SIGNAL));
+
+        String date = getString(getColumnIndex(Schema.HabitTable.Cols.DATE));
+
+        SelfAssessmentData data = new SelfAssessmentData(food,amount,time,
+                location,situation,feeling,signal);
+        data.setSent(isSent);
+        data.setDate(date);
+
+        return data;
     }
-
-
-
-
-
-
 
 }

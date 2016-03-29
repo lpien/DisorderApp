@@ -15,6 +15,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.mikhaellopez.circularprogressbar.CircularProgressBar;
+
 import ur.disorderapp.EnumValues.GoalStatus;
 import ur.disorderapp.model.Collection;
 
@@ -43,11 +45,9 @@ public class MainActivity extends AppCompatActivity
 
         //TODO: add sound when button clicked (SoundPool)
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener()
-        {
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
+            public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
@@ -61,6 +61,16 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //Setting up progress bar
+        int progress = sCollection.checkProgress("sugar");
+        View headerView = navigationView.getHeaderView(0);
+        CircularProgressBar sugarProgress =
+                (CircularProgressBar) headerView.findViewById(R.id.sugar_progress);
+        // 2500ms = 2.5s
+        int animationDuration = 5000;
+        // Default duration = 1500ms
+        sugarProgress.setProgressWithAnimation(progress, animationDuration);
 
 
         //Sugar Program
@@ -81,8 +91,7 @@ public class MainActivity extends AppCompatActivity
                 //Start a new one
                 if(s==GoalStatus.UNACTIVATED || s==GoalStatus.SELFMONITORING)
                 {
-                    i = new Intent(getApplicationContext(), SelfAssessmentActivity.class);
-
+                    i = new Intent(getApplicationContext(), PreSelfMonitorActivity.class);
                 }
                 //Or Continue
                 else {

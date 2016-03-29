@@ -31,6 +31,8 @@ public class DatabaseHelper extends SQLiteOpenHelper
                         + Schema.HabitTable.Cols.LOCATION + ", "
                         + Schema.HabitTable.Cols.SITUATION + ", "
                         + Schema.HabitTable.Cols.FEELING + ", "
+                        + Schema.HabitTable.Cols.SENT + ", "
+                        + Schema.HabitTable.Cols.SIGNAL+", "
                         + Schema.HabitTable.Cols.DATE + ")"
         );
 

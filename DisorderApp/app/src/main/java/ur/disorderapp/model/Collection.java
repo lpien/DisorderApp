@@ -27,7 +27,7 @@ public class Collection
 
     private static Collection sCollection;
     //private Map<String, Goal> Goal_collection;
-    private Map<String, SelfAssessmentData> SelfAssessmentData_collection;
+    //private Map<String, SelfAssessmentData> SelfAssessmentData_collection;
     private Map<String,String> Account_collection;
     private final SQLiteDatabase Database;
 
@@ -36,7 +36,7 @@ public class Collection
         Context appContext1 = appContext.getApplicationContext();
         assessmentCounter = 0;
         //Goal_collection = new HashMap<>();
-        SelfAssessmentData_collection = new HashMap<>();
+        //SelfAssessmentData_collection = new HashMap<>();
         Account_collection = new HashMap<>();
         Database = new DatabaseHelper(appContext1).getWritableDatabase();
 
@@ -75,12 +75,13 @@ public class Collection
         ContentValues values = new ContentValues();
 
         values.put(Schema.HabitTable.Cols.AMOUNT, data.getAmount());
-        values.put(Schema.HabitTable.Cols.DATE, data.getDate().getTime());
+        values.put(Schema.HabitTable.Cols.DATE, data.getDate());
         values.put(Schema.HabitTable.Cols.FEELING, data.getFeeling().toString());
         values.put(Schema.HabitTable.Cols.FOOD, data.getFood());
         values.put(Schema.HabitTable.Cols.LOCATION, data.getLocation().toString());
         values.put(Schema.HabitTable.Cols.SITUATION, data.getSituation().toString());
         values.put(Schema.HabitTable.Cols.TIME, data.getTime().toString());
+        values.put(Schema.HabitTable.Cols.SENT,data.isSent());
 
         return values;
     }
@@ -94,7 +95,7 @@ public class Collection
     public void addSelfAssessmentData(SelfAssessmentData data) {
         ContentValues values = getContentValues_selfMonitoringData(data);
         Database.insert(Schema.GoalTable.NAME, null, values);
-        SelfAssessmentData_collection.put(Integer.toString(assessmentCounter), data);
+        //SelfAssessmentData_collection.put(Integer.toString(assessmentCounter), data);
         assessmentCounter++;
     }
 
@@ -206,13 +207,29 @@ public class Collection
     //return a full list of SelfAssessmentData records
     public List<SelfAssessmentData> getSelfAssessmentData()
     {
-        List<SelfAssessmentData> list = new ArrayList<>(SelfAssessmentData_collection.size());
+        List<SelfAssessmentData> list = new ArrayList<>();
 
         try (DatabaseCursorWrapper wrapper = querySelfAssessmentData(null, null)) {
             wrapper.moveToFirst();
             while (!wrapper.isAfterLast()) {
                 SelfAssessmentData data = wrapper.getSelfAssessmentData();
                 list.add(data);
+                wrapper.moveToNext();
+            }
+        }
+        return list;
+    }
+
+    //return a list of unsent data
+    public List<SelfAssessmentData> getUnsentSelfAssessmentData()
+    {
+        List<SelfAssessmentData> list = new ArrayList<>();
+
+        try (DatabaseCursorWrapper wrapper = querySelfAssessmentData("SENT=?", new String[]{"0"})) {
+            wrapper.moveToFirst();
+            while (!wrapper.isAfterLast()) {
+                SelfAssessmentData data = wrapper.getSelfAssessmentData();
+                    list.add(data);
                 wrapper.moveToNext();
             }
         }

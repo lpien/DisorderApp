@@ -74,6 +74,12 @@ public class Schema
 
             //Record the date of this self-monitoring result
             public static final String DATE = "date";
+
+            //Indicating if the data is sent
+            public static final String SENT = "sent";
+
+            //Indicating if the data is reported by signal
+            public static final String SIGNAL = "signal";
         }
 
     }
