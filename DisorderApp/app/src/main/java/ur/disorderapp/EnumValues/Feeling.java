@@ -3,7 +3,7 @@ package ur.disorderapp.EnumValues;
 
 public enum Feeling
 {
-    HUNGRY,
+    HUNGARY,
     THIRSTY,
     EXHAUSTED,
     OTHER

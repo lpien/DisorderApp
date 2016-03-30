@@ -27,4 +27,8 @@
     <string name="title_activity_pre_self_monitor">PreSelfMonitorActivity</string>
     <string name="btn_ok">OK</string>
     <string name="btn_cancel">Cancel</string>
+    <string name="submit_text">Are you sure you want to submit this record?</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

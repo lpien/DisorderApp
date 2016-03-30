@@ -57,17 +57,17 @@ public class SelfAssessmentData
         return mFood;
     }
 
-//    public void setFood(String food) {
-//        mFood = food;
-//    }
+    public void setFood(String food) {
+        mFood = food;
+    }
 
     public int getAmount() {
         return mAmount;
     }
 
-//    public void setAmount(int amount) {
-//        mAmount = amount;
-//    }
+    public void setAmount(int amount) {
+        mAmount = amount;
+    }
 
     public TimePeriod getTime() {
         return mTime;
@@ -81,25 +81,25 @@ public class SelfAssessmentData
         return mLocation;
     }
 
-//    public void setLocation(Location location) {
-//        mLocation = location;
-//    }
+    public void setLocation(Location location) {
+        mLocation = location;
+    }
 
     public Situation getSituation() {
         return mSituation;
     }
 
-//    public void setSituation(Situation situation) {
-//        mSituation = situation;
-//    }
+    public void setSituation(Situation situation) {
+        mSituation = situation;
+    }
 
     public Feeling getFeeling() {
         return mFeeling;
     }
 
-//    public void setFeeling(Feeling feeling) {
-//        mFeeling = feeling;
-//    }
+    public void setFeeling(Feeling feeling) {
+        mFeeling = feeling;
+    }
 
     public String getDate() {
         return mDate;

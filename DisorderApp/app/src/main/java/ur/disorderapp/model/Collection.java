@@ -94,7 +94,7 @@ public class Collection
     }
     public void addSelfAssessmentData(SelfAssessmentData data) {
         ContentValues values = getContentValues_selfMonitoringData(data);
-        Database.insert(Schema.GoalTable.NAME, null, values);
+        Database.insert(Schema.HabitTable.NAME, null, values);
         //SelfAssessmentData_collection.put(Integer.toString(assessmentCounter), data);
         assessmentCounter++;
     }
