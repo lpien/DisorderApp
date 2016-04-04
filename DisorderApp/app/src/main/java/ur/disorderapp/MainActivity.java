@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
@@ -201,10 +202,10 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-//    @Override
-//    protected void onUserLeaveHint ()
-//    {
-//        super.onUserLeaveHint();
-//
-//    }
+    @Override
+    protected void onUserLeaveHint ()
+    {
+        super.onUserLeaveHint();
+        this.finishAffinity();
+    }
 }

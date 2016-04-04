@@ -125,4 +125,11 @@ public class PreSelfMonitorActivity extends AppCompatActivity
         startActivity(i);
     }
 
+    @Override
+    protected void onUserLeaveHint ()
+    {
+        super.onUserLeaveHint();
+        this.finishAffinity();
+    }
+
 }

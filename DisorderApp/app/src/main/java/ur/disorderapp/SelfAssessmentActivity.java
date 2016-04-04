@@ -201,7 +201,7 @@ public class SelfAssessmentActivity extends AppCompatActivity
             sCollection.addSelfAssessmentData(data);
 
             stopService(new Intent(this, Timer_Notification_Service.class));
-            startService(new Intent(this,Timer_Notification_Service.class));
+            startService(new Intent(this, Timer_Notification_Service.class));
 
             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -279,5 +279,12 @@ public class SelfAssessmentActivity extends AppCompatActivity
                 view.setAlpha(0);
             }
         }
+    }
+
+    @Override
+    protected void onUserLeaveHint ()
+    {
+        super.onUserLeaveHint();
+        this.finishAffinity();
     }
 }
