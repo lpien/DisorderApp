@@ -69,7 +69,7 @@ public class DatabaseCursorWrapper extends CursorWrapper
                         getColumnIndex(
                                 Schema.HabitTable.Cols.FEELING)));
 
-        int isSent = getInt(getColumnIndex(Schema.HabitTable.Cols.SENT));
+        String isSent = getString(getColumnIndex(Schema.HabitTable.Cols.SENT));
 
         int signal = getInt(getColumnIndex(Schema.HabitTable.Cols.SIGNAL));
 

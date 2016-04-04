@@ -18,9 +18,11 @@ public class SelfAssessmentData
     private Situation mSituation;
     private Feeling mFeeling;
 
+
+
     private String mDate;
 
-    private int mSent;//a boolean indicating if the data is sent
+    private String mSent;//a boolean indicating if the data is sent
     private int mSignaled;//indicating if this is a signaled data
 
     public SelfAssessmentData(String food, int amount,
@@ -33,22 +35,36 @@ public class SelfAssessmentData
         mLocation = location;
         mSituation = situation;
         mFeeling = feeling;
-        mDate = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-        mSent = 0;
+        mDate = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Date());
+        mSent = "0";
         mSignaled = signal;
     }
 
+    @Override
+    public String toString() {
+        return "SelfAssessmentData{" +"\n"+
+                "mFood='" + mFood + '\'' +"\n"+
+                ", mAmount=" + mAmount +"\n"+
+                ", mTime=" + mTime +"\n"+
+                ", mLocation=" + mLocation +"\n"+
+                ", mSituation=" + mSituation +"\n"+
+                ", mFeeling=" + mFeeling +"\n"+
+                ", mDate='" + mDate + '\'' +"\n"+
+                ", mSent=" + mSent +"\n"+
+                ", mSignaled=" + mSignaled +"\n"+
+                '}'+ "\n";
+    }
     public int isSignaled()
     {
         return  mSignaled;
     }
 
-    public int isSent()
+    public String isSent()
     {
         return mSent;
     }
 
-    public void setSent(int s)//set mSent to true
+    public void setSent(String s)//set mSent to true
     {
         mSent = s;
     }

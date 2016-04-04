@@ -188,6 +188,7 @@ public class SelfAssessmentActivity extends AppCompatActivity
     public void onDataPass(boolean submit)
     {
         if (submit) {
+
             SelfAssessmentData data = new SelfAssessmentData(hashMap.get(0),
                     Integer.parseInt(hashMap.get(1)),
                     TimePeriod.valueOf(hashMap.get(2)),
@@ -199,26 +200,12 @@ public class SelfAssessmentActivity extends AppCompatActivity
             //Save data to database
             sCollection.addSelfAssessmentData(data);
 
+            stopService(new Intent(this, Timer_Notification_Service.class));
+            startService(new Intent(this,Timer_Notification_Service.class));
+
             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
-
-            //move these to service to make it run in background
-//            //Get phone number
-//            TelephonyManager tMgr = (TelephonyManager)getApplicationContext()
-//                    .getSystemService(Context.TELEPHONY_SERVICE);
-//            String mPhoneNumber = tMgr.getLine1Number();
-//
-//            FirebaseData DATA = new FirebaseData(data,mPhoneNumber);
-//
-//            //Send data to Firebase
-//            Firebase.setAndroidContext(getApplicationContext());
-//            Firebase ref =
-//                    new Firebase("https://brilliant-torch-1224.firebaseio.com/TestData");
-//            Firebase dataRef = ref.child(mPhoneNumber);
-//            dataRef.setValue(DATA);
-
-
         }
     }
 

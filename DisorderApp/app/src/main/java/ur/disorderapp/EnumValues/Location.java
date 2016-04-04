@@ -4,6 +4,7 @@ public enum Location
 {
     HOME,
     WORK,
-    ON_THE_GO
+    ON_THE_GO,
+    OTHER
 
 }

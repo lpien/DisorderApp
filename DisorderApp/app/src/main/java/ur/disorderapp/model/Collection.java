@@ -115,6 +115,20 @@ public class Collection
                 Schema.GoalTable.Cols.NAME + "=?", new String[]{name});
     }
 
+    public void updateData(SelfAssessmentData data)
+    {
+        ContentValues values = getContentValues_selfMonitoringData(data);
+        String date = data.getDate();
+        Database.update(Schema.HabitTable.NAME,values,
+                Schema.HabitTable.Cols.DATE + "=?", new String[]{date});
+    }
+
+    public void updateStatus(GoalStatus s, String name)
+    {
+        Goal goal = new Goal(sCollection.checkProgress(name),s,name);
+        sCollection.updateGoal(goal);
+    }
+
     public static Collection get(Context c)
     {
         if(sCollection == null) {
@@ -235,4 +249,6 @@ public class Collection
         }
         return list;
     }
+
+
 }
