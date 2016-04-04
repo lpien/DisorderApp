@@ -73,7 +73,7 @@ public class SlideFragment extends Fragment
             btn_0.setImageResource(R.drawable.cocacola);
             btn_1.setImageResource(R.drawable.donut);
             btn_2.setImageResource(R.drawable.other);
-            /*btn_0.setText("A sugery drink");
+            /*btn_0.setText("A sugary drink");
             btn_1.setText("A pastry");
             btn_2.setText("Other");*/
         }
@@ -81,7 +81,7 @@ public class SlideFragment extends Fragment
             Log.i(TAG, "position 1 [DEBUG]");
             titleText.setText("How many did you consume?");
             Log.i(TAG, "position 1 [DEBUG 1]");
-            btn_0.setImageResource(R.drawable.donut);
+            btn_0.setImageResource(R.drawable.other);
             Log.i(TAG, "position 1 [DEBUG 2]");
             btn_1.setImageResource(R.drawable.other);
             Log.i(TAG, "position 1 [DEBUG 3]");
@@ -111,7 +111,7 @@ public class SlideFragment extends Fragment
         if(position == 4){
             Log.i(TAG, "position 4 [DEBUG]");
             titleText.setText("What did you eat it with?");
-            btn_0.setImageResource(R.drawable.other);
+            btn_0.setImageResource(R.drawable.meal);
             btn_1.setImageResource(R.drawable.other);
             btn_2.setImageResource(R.drawable.other);
             /*btn_0.setText("A meal");
@@ -125,7 +125,7 @@ public class SlideFragment extends Fragment
 
             titleText.setText("How were you feeling?");
             btn_0.setImageResource(R.drawable.hungry);
-            btn_1.setImageResource(R.drawable.thirsty);
+            btn_1.setImageResource(R.drawable.other);
             btn_2.setImageResource(R.drawable.notsure);
             /*btn_0.setText("Hungry");
             btn_1.setText("Thirsty");
