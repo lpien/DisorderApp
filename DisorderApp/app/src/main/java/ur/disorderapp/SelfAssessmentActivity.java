@@ -1,5 +1,6 @@
 package ur.disorderapp;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -47,6 +48,8 @@ public class SelfAssessmentActivity extends FragmentActivity
 
         mPager = (ViewPager) findViewById(R.id.view_pager);
 
+        final MediaPlayer sound = MediaPlayer.create(SelfAssessmentActivity.this, R.raw.sample);
+
         /*
       The pager adapter, which provides the pages to the view pager widget.
      */
@@ -60,10 +63,11 @@ public class SelfAssessmentActivity extends FragmentActivity
             @Override
             public void onClick(View view)
             {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                sound.start();
+                Log.i(TAG, "FAB button clicked");
             }
         });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

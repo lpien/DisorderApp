@@ -1,6 +1,7 @@
 package ur.disorderapp;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -31,15 +32,31 @@ public class SugarProgramActivity extends AppCompatActivity
 
         Log.d(TAG, "onCreate() called");
 
+        final MediaPlayer sound = MediaPlayer.create(SugarProgramActivity.this, R.raw.sample);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        /*
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                sound.start();
+                Log.i(TAG, "FAB button clicked");
+
+            }
+        });
+         */
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                sound.start();
+                Log.i(TAG, "FAB button clicked");
             }
         });
 

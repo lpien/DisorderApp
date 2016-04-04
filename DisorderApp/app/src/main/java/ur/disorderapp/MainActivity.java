@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity
         //Initialize the database collection
         sCollection = Collection.get(this.getApplicationContext());
 
-        //TODO: add sound when button clicked (SoundPool)
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener()
         {
@@ -64,6 +63,7 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 sound.start();
+                Log.i(TAG, "FAB button clicked");
 
             }
         });

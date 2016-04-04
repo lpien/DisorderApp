@@ -120,9 +120,6 @@ public class SlideFragment extends Fragment
         }
         if(position == 5){
             Log.i(TAG, "position 5 [DEBUG]");
-
-            // BUUUUGGGG
-
             titleText.setText("How were you feeling?");
             btn_0.setImageResource(R.drawable.hungry);
             btn_1.setImageResource(R.drawable.other);
