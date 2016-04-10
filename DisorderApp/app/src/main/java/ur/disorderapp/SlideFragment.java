@@ -70,9 +70,9 @@ public class SlideFragment extends Fragment
         if(position == 0){
             Log.i(TAG, "position 0");
             titleText.setText("Which of these did you eat?");
-            btn_0.setImageResource(R.drawable.cocacola);
-            btn_1.setImageResource(R.drawable.donut);
-            btn_2.setImageResource(R.drawable.other);
+            btn_0.setImageResource(R.mipmap.coke);
+            btn_1.setImageResource(R.mipmap.donut);
+            btn_2.setImageResource(R.mipmap.qmark);
             /*btn_0.setText("A sugary drink");
             btn_1.setText("A pastry");
             btn_2.setText("Other");*/
@@ -81,19 +81,19 @@ public class SlideFragment extends Fragment
             Log.i(TAG, "position 1 [DEBUG]");
             titleText.setText("How many did you consume?");
             Log.i(TAG, "position 1 [DEBUG 1]");
-            btn_0.setImageResource(R.drawable.other);
+            btn_0.setImageResource(R.mipmap.oneimg);
             Log.i(TAG, "position 1 [DEBUG 2]");
-            btn_1.setImageResource(R.drawable.other);
+            btn_1.setImageResource(R.mipmap.twoimg);
             Log.i(TAG, "position 1 [DEBUG 3]");
-            btn_2.setImageResource(R.drawable.other);
+            btn_2.setImageResource(R.mipmap.threeimg);
             Log.i(TAG, "position 1 [DEBUG 4]");
         }
         if(position == 2){
             Log.i(TAG, "position 2 [DEBUG]");
             titleText.setText("When did you consume it?");
-            btn_0.setImageResource(R.drawable.other);
-            btn_1.setImageResource(R.drawable.other);
-            btn_2.setImageResource(R.drawable.other);
+            btn_0.setImageResource(R.mipmap.morning);
+            btn_1.setImageResource(R.mipmap.afternoon);
+            btn_2.setImageResource(R.mipmap.night);
             /*btn_0.setImageResource("A sugery drink");
             btn_1.setText("A pastry");
             btn_2.setText("Other");*/
@@ -101,9 +101,9 @@ public class SlideFragment extends Fragment
         if(position == 3){
             Log.i(TAG, "position 3 [DEBUG]");
             titleText.setText("Where did you eat it?");
-            btn_0.setImageResource(R.drawable.home);
-            btn_1.setImageResource(R.drawable.work);
-            btn_2.setImageResource(R.drawable.go);
+            btn_0.setImageResource(R.mipmap.home);
+            btn_1.setImageResource(R.mipmap.work);
+            btn_2.setImageResource(R.mipmap.truck);
            /* btn_0.setText("Home");
             btn_1.setText("Work");
             btn_2.setText("On the go");*/
@@ -111,9 +111,9 @@ public class SlideFragment extends Fragment
         if(position == 4){
             Log.i(TAG, "position 4 [DEBUG]");
             titleText.setText("What did you eat it with?");
-            btn_0.setImageResource(R.drawable.meal);
-            btn_1.setImageResource(R.drawable.other);
-            btn_2.setImageResource(R.drawable.other);
+            btn_0.setImageResource(R.mipmap.meal);
+            btn_1.setImageResource(R.mipmap.other);
+            btn_2.setImageResource(R.mipmap.other);
             /*btn_0.setText("A meal");
             btn_1.setText("Nothing");
             btn_2.setText("Other");*/
@@ -121,9 +121,9 @@ public class SlideFragment extends Fragment
         if(position == 5){
             Log.i(TAG, "position 5 [DEBUG]");
             titleText.setText("How were you feeling?");
-            btn_0.setImageResource(R.drawable.hungry);
-            btn_1.setImageResource(R.drawable.other);
-            btn_2.setImageResource(R.drawable.notsure);
+            btn_0.setImageResource(R.mipmap.hungry);
+            btn_1.setImageResource(R.mipmap.thirsty);
+            btn_2.setImageResource(R.mipmap.other);
             /*btn_0.setText("Hungry");
             btn_1.setText("Thirsty");
             btn_2.setText("Other");*/
