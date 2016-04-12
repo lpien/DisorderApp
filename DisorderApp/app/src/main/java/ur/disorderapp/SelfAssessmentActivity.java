@@ -1,12 +1,9 @@
 package ur.disorderapp;
 
-<<<<<<< HEAD
 import android.media.MediaPlayer;
-=======
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
->>>>>>> database
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,11 +13,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-<<<<<<< HEAD
 import android.util.Log;
-=======
 import android.telephony.TelephonyManager;
->>>>>>> database
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -30,17 +24,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
-
-public class SelfAssessmentActivity extends FragmentActivity
-        implements NavigationView.OnNavigationItemSelectedListener
-=======
 import com.firebase.client.Firebase;
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
-
 import java.util.HashMap;
 
 import ur.disorderapp.EnumValues.Feeling;
@@ -52,28 +39,18 @@ import ur.disorderapp.model.DataPiece;
 import ur.disorderapp.model.FirebaseData;
 import ur.disorderapp.model.SelfAssessmentData;
 
-public class SelfAssessmentActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,
-                    SlideFragment.OnDataPass,
-                    SlideFragment_submit.OnDataPass_submit
->>>>>>> database
-{
+
+public class SelfAssessmentActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, SlideFragment.OnDataPass, SlideFragment_submit.OnDataPass_submit {
     private final String TAG = "SelfAssessmentActivity";
     private ViewPager mPager;
-    //int pos = 0;
-
     public static Collection sCollection;
 
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
-<<<<<<< HEAD
-    private static final int NUM_PAGES = 6;
-=======
     private static final int NUM_PAGES = 7;
 
     private HashMap<Integer,String> hashMap;
->>>>>>> database
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -84,17 +61,13 @@ public class SelfAssessmentActivity extends AppCompatActivity
         Log.d(TAG, "onCreate() called");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
 
         mPager = (ViewPager) findViewById(R.id.view_pager);
-
-<<<<<<< HEAD
         final MediaPlayer sound = MediaPlayer.create(SelfAssessmentActivity.this, R.raw.sample);
-=======
 
         //Initialize the Hashmap
         hashMap = new HashMap<>();
->>>>>>> database
 
         /*
       The pager adapter, which provides the pages to the view pager widget.
@@ -204,9 +177,7 @@ public class SelfAssessmentActivity extends AppCompatActivity
         return true;
     }
 
-<<<<<<< HEAD
     public int pos;
-=======
     @Override
     public void onDataPass(DataPiece data)
     {
@@ -242,7 +213,6 @@ public class SelfAssessmentActivity extends AppCompatActivity
             startActivity(intent);
         }
     }
->>>>>>> database
 
     private class viewpagerAdapter extends FragmentStatePagerAdapter
     {
@@ -254,11 +224,9 @@ public class SelfAssessmentActivity extends AppCompatActivity
         @Override
         public android.support.v4.app.Fragment getItem(int position)
         {
-<<<<<<< HEAD
             Log.i(TAG, "getItem() called, position = "+position);
             pos = position;
             return SlideFragment.newInstance(Integer.toString(position));
-=======
 
             if(position==6)
             {
@@ -271,7 +239,6 @@ public class SelfAssessmentActivity extends AppCompatActivity
             SlideFragment fragment = SlideFragment.newInstance(position);
 
             return fragment;
->>>>>>> database
         }
 
         @Override

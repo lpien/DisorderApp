@@ -1,27 +1,19 @@
 package ur.disorderapp;
 
-
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-<<<<<<< HEAD
 import android.transition.Slide;
 import android.util.Log;
-=======
->>>>>>> database
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-<<<<<<< HEAD
 import android.widget.ImageButton;
 import android.widget.TextView;
-=======
-
 import ur.disorderapp.model.DataPiece;
->>>>>>> database
 
 
 public class SlideFragment extends Fragment
@@ -294,7 +286,6 @@ public class SlideFragment extends Fragment
     {
         b.setBackgroundColor(Color.RED);
     }
->>>>>>> database
 
     private void deselect(Button b)
     {
