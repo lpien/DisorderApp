@@ -29,7 +29,7 @@ public class SelfAssessmentActivity extends FragmentActivity
 {
     private final String TAG = "SelfAssessmentActivity";
     private ViewPager mPager;
-    int pos = 0;
+    //int pos = 0;
 
     /**
      * The number of pages (wizard steps) to show in this demo.

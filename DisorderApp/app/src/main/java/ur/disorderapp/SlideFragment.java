@@ -19,8 +19,6 @@ public class SlideFragment extends Fragment
 
     public static final String TAG = "SlideFragment";
 
-    public static final String TAG = "SlideFragment";
-
     Button btn_0, btn_1, btn_2;
 
     public SlideFragment()
