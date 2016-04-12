@@ -29,6 +29,7 @@ public class SelfAssessmentActivity extends FragmentActivity
 {
     private final String TAG = "SelfAssessmentActivity";
     private ViewPager mPager;
+    int pos = 0;
 
     /**
      * The number of pages (wizard steps) to show in this demo.
@@ -162,9 +163,6 @@ public class SelfAssessmentActivity extends FragmentActivity
         public SlideFragment getItem(int position)
         {
             Log.i(TAG, "getItem() called, position = "+position);
-            //pos = position;
-            //return SlideFragment.newInstance(Integer.toString(position));
-            //Log.i(TAG, "getItem() called position = " +position);
             pos = position;
             return SlideFragment.newInstance(Integer.toString(position));
         }

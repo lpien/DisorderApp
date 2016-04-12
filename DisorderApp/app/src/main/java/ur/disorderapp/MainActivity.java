@@ -44,9 +44,6 @@ public class MainActivity extends AppCompatActivity
 
         Log.d(TAG, "onCreate() called");
 
-        //MEDIAPLAYER
-        //mySound = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
-        //soundId = mySound.load(this, R.raw.sample, 1);
         final MediaPlayer sound = MediaPlayer.create(MainActivity.this, R.raw.sample);
 
 

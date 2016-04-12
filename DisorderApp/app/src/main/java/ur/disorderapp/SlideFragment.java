@@ -19,6 +19,10 @@ public class SlideFragment extends Fragment
 
     public static final String TAG = "SlideFragment";
 
+    public static final String TAG = "SlideFragment";
+
+    Button btn_0, btn_1, btn_2;
+
     public SlideFragment()
     {
         // Required empty public constructor
@@ -26,20 +30,15 @@ public class SlideFragment extends Fragment
 
     public static SlideFragment newInstance(String text)
     {
-
         //A Factory Method creating new instance
         Log.i(TAG, "newInstance() called");
         SlideFragment fragment = new SlideFragment();
         Bundle bundle = new Bundle();
-        //int position = Integer.parseInt(text);
         int pos = Integer.parseInt(text);
         bundle.putInt(KEY, pos);
-        //bundle.putString(KEY, text);
-
         fragment.setArguments(bundle);
         return fragment;
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,14 +57,6 @@ public class SlideFragment extends Fragment
         ImageButton btn_1 = (ImageButton) rootView.findViewById(R.id.frag_btn_1);
         ImageButton btn_2 = (ImageButton) rootView.findViewById(R.id.frag_btn_2);
         Log.i(TAG, "onCreateView() [DEBUG]");
-
-        //Button btn_3 = (Button) rootView.findViewById(R.id.frag_btn_3);
-
-
-
-        //TextView textView = (TextView) rootView.findViewById(R.id.fragment_text);
-        //textView.setText(text);
-
 
         if(position == 0){
             Log.i(TAG, "position 0");
