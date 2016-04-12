@@ -1,5 +1,6 @@
 package ur.disorderapp.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import ur.disorderapp.EnumValues.Feeling;
@@ -17,11 +18,16 @@ public class SelfAssessmentData
     private Situation mSituation;
     private Feeling mFeeling;
 
-    private Date mDate;
+
+
+    private String mDate;
+
+    private String mSent;//a boolean indicating if the data is sent
+    private int mSignaled;//indicating if this is a signaled data
 
     public SelfAssessmentData(String food, int amount,
                               TimePeriod time, Location location,
-                              Situation situation, Feeling feeling, Date date)
+                              Situation situation, Feeling feeling, int signal)
     {
         mFood = food;
         mAmount = amount;
@@ -29,7 +35,38 @@ public class SelfAssessmentData
         mLocation = location;
         mSituation = situation;
         mFeeling = feeling;
-        mDate = date;
+        mDate = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Date());
+        mSent = "0";
+        mSignaled = signal;
+    }
+
+    @Override
+    public String toString() {
+        return "SelfAssessmentData{" +"\n"+
+                "mFood='" + mFood + '\'' +"\n"+
+                ", mAmount=" + mAmount +"\n"+
+                ", mTime=" + mTime +"\n"+
+                ", mLocation=" + mLocation +"\n"+
+                ", mSituation=" + mSituation +"\n"+
+                ", mFeeling=" + mFeeling +"\n"+
+                ", mDate='" + mDate + '\'' +"\n"+
+                ", mSent=" + mSent +"\n"+
+                ", mSignaled=" + mSignaled +"\n"+
+                '}'+ "\n";
+    }
+    public int isSignaled()
+    {
+        return  mSignaled;
+    }
+
+    public String isSent()
+    {
+        return mSent;
+    }
+
+    public void setSent(String s)//set mSent to true
+    {
+        mSent = s;
     }
 
     public String getFood() {
@@ -80,11 +117,11 @@ public class SelfAssessmentData
         mFeeling = feeling;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return mDate;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         mDate = date;
     }
 }

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="ur.disorderapp"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ur.disorderapp">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -10,16 +12,27 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- Splash screen -->
+        <activity
+            android:name=".SplashScreenActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Home screen -->
         <activity
             android:name=".MainActivity"
             android:label="MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+            android:theme="@style/AppTheme.NoActionBar" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+        <!-- Sugar Program Home screen -->
         <activity
             android:name=".SugarProgramActivity"
             android:label="@string/title_activity_sugar_program"
@@ -27,8 +40,10 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ur.disorderapp.MainActivity"/>
+                android:value="ur.disorderapp.MainActivity" />
         </activity>
+
+        <!-- Sugar Program Self Assessment screen -->
         <activity
             android:name=".SelfAssessmentActivity"
             android:label="@string/title_activity_self_assessment"
@@ -36,8 +51,22 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="ur.disorderapp.SugarProgramActivity"/>
+                android:value="ur.disorderapp.SugarProgramActivity" />
         </activity>
+
+        <!-- Login screen -->
+        <activity android:name=".LoginActivity" />
+        <activity
+            android:name=".PreSelfMonitorActivity"
+            android:label="@string/title_activity_pre_self_monitor"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <service
+            android:name=".DataSendingService"
+            android:exported="false" />
+        <service
+            android:name=".Timer_Notification_Service"
+            android:exported="false"></service>
     </application>
 
 </manifest>

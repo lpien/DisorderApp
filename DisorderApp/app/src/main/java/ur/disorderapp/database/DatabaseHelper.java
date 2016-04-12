@@ -17,10 +17,10 @@ public class DatabaseHelper extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db)
     {
         db.execSQL("create table " + Schema.GoalTable.NAME
-                + "(_id integer primary key autoincrement, "
-                + Schema.GoalTable.Cols.STATUS + ", "
-                + Schema.GoalTable.Cols.NAME + ", "
-                + Schema.GoalTable.Cols.PROGRESS + ")"
+                        + "(_id integer primary key autoincrement, "
+                        + Schema.GoalTable.Cols.STATUS + ", "
+                        + Schema.GoalTable.Cols.NAME + ", "
+                        + Schema.GoalTable.Cols.PROGRESS + ")"
         );
 
         db.execSQL("create table " + Schema.HabitTable.NAME
@@ -31,7 +31,15 @@ public class DatabaseHelper extends SQLiteOpenHelper
                         + Schema.HabitTable.Cols.LOCATION + ", "
                         + Schema.HabitTable.Cols.SITUATION + ", "
                         + Schema.HabitTable.Cols.FEELING + ", "
+                        + Schema.HabitTable.Cols.SENT + ", "
+                        + Schema.HabitTable.Cols.SIGNAL+", "
                         + Schema.HabitTable.Cols.DATE + ")"
+        );
+
+        db.execSQL("create table " + Schema.AccountTable.NAME
+                        + "(_id integer primary key autoincrement, "
+                        + Schema.AccountTable.Cols.UID + ", "
+                        + Schema.AccountTable.Cols.PASSWORD + ")"
         );
     }
 

@@ -21,7 +21,7 @@ public class SugarProgramActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener
 {
 
-    Button mSodaTask, mSelfTest;
+    Button mSelfTest;
 
     private final String TAG = "SugarProgramActivity";
 
@@ -37,6 +37,7 @@ public class SugarProgramActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+<<<<<<< HEAD
         /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener()
@@ -50,6 +51,8 @@ public class SugarProgramActivity extends AppCompatActivity
             }
         });
          */
+=======
+>>>>>>> database
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

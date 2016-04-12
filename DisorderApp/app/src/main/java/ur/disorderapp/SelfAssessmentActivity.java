@@ -1,6 +1,12 @@
 package ur.disorderapp;
 
+<<<<<<< HEAD
 import android.media.MediaPlayer;
+=======
+import android.app.Fragment;
+import android.content.Context;
+import android.content.Intent;
+>>>>>>> database
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -10,7 +16,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+<<<<<<< HEAD
 import android.util.Log;
+=======
+import android.telephony.TelephonyManager;
+>>>>>>> database
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -21,20 +31,49 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
 public class SelfAssessmentActivity extends FragmentActivity
         implements NavigationView.OnNavigationItemSelectedListener
+=======
+import com.firebase.client.Firebase;
+import com.mikhaellopez.circularprogressbar.CircularProgressBar;
+
+import java.util.HashMap;
+
+import ur.disorderapp.EnumValues.Feeling;
+import ur.disorderapp.EnumValues.Location;
+import ur.disorderapp.EnumValues.Situation;
+import ur.disorderapp.EnumValues.TimePeriod;
+import ur.disorderapp.model.Collection;
+import ur.disorderapp.model.DataPiece;
+import ur.disorderapp.model.FirebaseData;
+import ur.disorderapp.model.SelfAssessmentData;
+
+public class SelfAssessmentActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener,
+                    SlideFragment.OnDataPass,
+                    SlideFragment_submit.OnDataPass_submit
+>>>>>>> database
 {
     private final String TAG = "SelfAssessmentActivity";
     private ViewPager mPager;
     //int pos = 0;
 
+    public static Collection sCollection;
+
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
+<<<<<<< HEAD
     private static final int NUM_PAGES = 6;
+=======
+    private static final int NUM_PAGES = 7;
+
+    private HashMap<Integer,String> hashMap;
+>>>>>>> database
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -49,7 +88,13 @@ public class SelfAssessmentActivity extends FragmentActivity
 
         mPager = (ViewPager) findViewById(R.id.view_pager);
 
+<<<<<<< HEAD
         final MediaPlayer sound = MediaPlayer.create(SelfAssessmentActivity.this, R.raw.sample);
+=======
+
+        //Initialize the Hashmap
+        hashMap = new HashMap<>();
+>>>>>>> database
 
         /*
       The pager adapter, which provides the pages to the view pager widget.
@@ -78,6 +123,17 @@ public class SelfAssessmentActivity extends FragmentActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //Setting up progress bar
+        sCollection = Collection.get(getApplicationContext());
+        int progress = sCollection.checkProgress("sugar");
+        View headerView = navigationView.getHeaderView(0);
+        CircularProgressBar sugarProgress =
+                (CircularProgressBar) headerView.findViewById(R.id.sugar_progress);
+        // 2500ms = 2.5s
+        int animationDuration = 5000;
+        // Default duration = 1500ms
+        sugarProgress.setProgressWithAnimation(progress, animationDuration);
     }
 
     @Override
@@ -137,9 +193,7 @@ public class SelfAssessmentActivity extends FragmentActivity
 
         } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
+        }  else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
@@ -150,7 +204,45 @@ public class SelfAssessmentActivity extends FragmentActivity
         return true;
     }
 
+<<<<<<< HEAD
     public int pos;
+=======
+    @Override
+    public void onDataPass(DataPiece data)
+    {
+        //receive data from fragments
+        int key = data.getKey();
+        String value = data.getData_value();
+
+        hashMap.put(key,value);
+    }
+
+    //submit data
+    @Override
+    public void onDataPass(boolean submit)
+    {
+        if (submit) {
+
+            SelfAssessmentData data = new SelfAssessmentData(hashMap.get(0),
+                    Integer.parseInt(hashMap.get(1)),
+                    TimePeriod.valueOf(hashMap.get(2)),
+                    Location.valueOf(hashMap.get(3)),
+                    Situation.valueOf(hashMap.get(5)),
+                    Feeling.valueOf(hashMap.get(4)),
+                    0);
+
+            //Save data to database
+            sCollection.addSelfAssessmentData(data);
+
+            stopService(new Intent(this, Timer_Notification_Service.class));
+            startService(new Intent(this, Timer_Notification_Service.class));
+
+            Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+    }
+>>>>>>> database
 
     private class viewpagerAdapter extends FragmentStatePagerAdapter
     {
@@ -160,11 +252,26 @@ public class SelfAssessmentActivity extends FragmentActivity
         }
 
         @Override
-        public SlideFragment getItem(int position)
+        public android.support.v4.app.Fragment getItem(int position)
         {
+<<<<<<< HEAD
             Log.i(TAG, "getItem() called, position = "+position);
             pos = position;
             return SlideFragment.newInstance(Integer.toString(position));
+=======
+
+            if(position==6)
+            {
+                //return the new fragment
+                SlideFragment_submit f = new SlideFragment_submit();
+                return f;
+            }
+
+            //otherwise
+            SlideFragment fragment = SlideFragment.newInstance(position);
+
+            return fragment;
+>>>>>>> database
         }
 
         @Override
@@ -213,5 +320,12 @@ public class SelfAssessmentActivity extends FragmentActivity
                 view.setAlpha(0);
             }
         }
+    }
+
+    @Override
+    protected void onUserLeaveHint ()
+    {
+        super.onUserLeaveHint();
+        this.finishAffinity();
     }
 }

@@ -1,5 +1,7 @@
 package ur.disorderapp;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -16,7 +18,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
+
+import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
 import ur.disorderapp.EnumValues.GoalStatus;
 import ur.disorderapp.model.Collection;
@@ -54,6 +59,7 @@ public class MainActivity extends AppCompatActivity
         sCollection = Collection.get(this.getApplicationContext());
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+<<<<<<< HEAD
         fab.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -64,19 +70,52 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
+=======
+        if (fab != null) {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+            });
+        }
+>>>>>>> database
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
+        if (drawer != null) {
+            drawer.setDrawerListener(toggle);
+        }
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        if (navigationView != null) {
+            navigationView.setNavigationItemSelectedListener(this);
+        }
+
+        //Setting up progress bar
+        int progress = sCollection.checkProgress("sugar");
+        View headerView = null;
+        if (navigationView != null) {
+            headerView = navigationView.getHeaderView(0);
+        }
+        CircularProgressBar sugarProgress = null;
+        if (headerView != null) {
+            sugarProgress = (CircularProgressBar) headerView.findViewById(R.id.sugar_progress);
+        }
+        // 2500ms = 2.5s
+        int animationDuration = 5000;
+        // Default duration = 1500ms
+        if (sugarProgress != null) {
+            sugarProgress.setProgressWithAnimation(progress, animationDuration);
+        }
 
 
         //Sugar Program
         Button sugarModule = (Button) findViewById(R.id.main_btn_sugar);
+        assert sugarModule != null;
         sugarModule.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -93,8 +132,7 @@ public class MainActivity extends AppCompatActivity
                 //Start a new one
                 if(s==GoalStatus.UNACTIVATED || s==GoalStatus.SELFMONITORING)
                 {
-                    i = new Intent(getApplicationContext(), SelfAssessmentActivity.class);
-
+                    i = new Intent(getApplicationContext(), PreSelfMonitorActivity.class);
                 }
                 //Or Continue
                 else {
@@ -103,6 +141,24 @@ public class MainActivity extends AppCompatActivity
                 startActivity(i);
             }
         });
+
+        //If there is no service running right now, start the service
+        if (!isMyServiceRunning(DataSendingService.class)){
+            Intent i = new Intent(this,DataSendingService.class);
+            startService(i);
+        }
+    }
+
+    //check running service
+    private boolean isMyServiceRunning(Class<?> serviceClass)
+    {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void playSound(View view){
@@ -113,11 +169,13 @@ public class MainActivity extends AppCompatActivity
     public void onBackPressed()
     {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START))
-        {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+        if (drawer != null) {
+            if (drawer.isDrawerOpen(GravityCompat.START))
+            {
+                drawer.closeDrawer(GravityCompat.START);
+            } else {
+                super.onBackPressed();
+            }
         }
     }
 
@@ -165,7 +223,16 @@ public class MainActivity extends AppCompatActivity
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        if (drawer != null) {
+            drawer.closeDrawer(GravityCompat.START);
+        }
         return true;
+    }
+
+    @Override
+    protected void onUserLeaveHint ()
+    {
+        super.onUserLeaveHint();
+        this.finishAffinity();
     }
 }
